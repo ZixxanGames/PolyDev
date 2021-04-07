@@ -15,25 +15,25 @@ import FixedLayout from '@vkontakte/vkui/dist/components/FixedLayout/FixedLayout
 import '../css/Radio.css';
 
 
-const StudyForm = ({ id, go }) => {
+const Degree = ({ id, go }) => {
 	return(
 	<Panel id={id}>
 		<PanelHeader>PolyApp</PanelHeader>
 		<Group>
 			<Div>
 				<Caption className="captionCaps" level="1" weight="semibold" caps >
-                    Круто! Мы рады, что тебе интересен наш университет. Расскажи, какая форма обучения тебе нравится?
+                    Отлично! А теперь выбери ступень высшего образования.
                 </Caption>
                 <FormLayout>
                     <FormItem top="Форма обуение">
-                        <Radio name="radio" value="intramural" defaultChecked>Очная</Radio>
-                        <Radio name="radio" value="extramural">Заочная</Radio>
+                        <Radio name="radio" value="bachelor" defaultChecked>Бакалавриат</Radio>
+                        <Radio name="radio" value="magistracy">Магистратура</Radio>
                     </FormItem>
                 </FormLayout>
 			</Div>
 			<FixedLayout filled vertical="bottom">
 				<Div>
-					<Button stretched size="l" mode="primary" onClick={go} data-to="degree">
+					<Button stretched size="l" mode="primary" onClick={go} data-to="acquaintance">
 							Далее
 					</Button>
 				</Div>
@@ -43,9 +43,9 @@ const StudyForm = ({ id, go }) => {
 )
 };
 
-StudyForm.propTypes = {
+Degree.propTypes = {
 	id: PropTypes.string.isRequired,
 	go: PropTypes.func.isRequired,
 };
 
-export default StudyForm;
+export default Degree;
