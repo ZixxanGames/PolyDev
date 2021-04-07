@@ -8,6 +8,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Start from './panels/Start';
 import Acquaintance from './panels/Acquaintance';
 import StudyForm from './panels/StydyForm';
+import Degree from './panels/Degree';
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('start');
@@ -41,6 +42,7 @@ const App = () => {
 					<Start id='start' fetchedUser={fetchedUser} go={go} />
 					<Acquaintance id='acquaintance' go={go} />
 					<StudyForm id='study-form' go={go} />
+					<Degree id='degree' go={go}/>
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>
