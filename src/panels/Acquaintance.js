@@ -32,7 +32,7 @@ const Acquaintance = ({ id, go }) => {
 			</Div>
 			<FixedLayout filled vertical="bottom">
 				<Div>
-					<Button stretched size="l" mode="primary" onClick={go} data-to={ already ? 'study-form' : 'start'} >
+					<Button stretched size="l" mode="primary" onClick={go} data-to={ already ? 'study-form' : 'student-form-filling'} >
 							Далее
 					</Button>
 				</Div>
