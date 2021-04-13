@@ -9,7 +9,7 @@ import Start from './panels/Start';
 import Acquaintance from './panels/Acquaintance';
 import StudyForm from './panels/StydyForm';
 import Degree from './panels/Degree';
-import StudentFormFilling from './panels/StudentFormFilling'
+import Form from './components/Form'
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('start');
@@ -43,7 +43,7 @@ const App = () => {
 					<Start id='start' fetchedUser={fetchedUser} go={go} />
 					<Acquaintance id='acquaintance' go={go} />
 					<StudyForm id='study-form' go={go} />
-					<StudentFormFilling id="student-form-filling" go={go}/>
+					<Form id="student-form-filling" go={go} />
 					<Degree id='degree' go={go}/>
 				</View>
 			</AppRoot>

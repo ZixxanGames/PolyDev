@@ -1,5 +1,7 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component} from 'react';
 
+import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
+import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import {FormItem} from '@vkontakte/vkui/dist/components/FormItem/FormItem';
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
 import { Button } from '@vkontakte/vkui';
@@ -35,11 +37,11 @@ class Form extends Component {
                 changed: true
             });
         };
-      }
-  
+    }
   render () {
     return (
-        <form>
+        <Panel id={this.props.id}> 
+            <PanelHeader>PolyApp</PanelHeader>
             <FormItem top="Курс">
             <Select name = "year" value={this.state.value}
             onChange={this.handleInputChange}
@@ -82,10 +84,10 @@ class Form extends Component {
             <FixedLayout filled vertical="bottom">
                 <Div>
                     <Button type="submit" stretched size="l" mode="primary"
-                disabled={!this.state.changed}>Продолжить</Button>
+                disabled={!this.state.changed} onClick={this.props.go} data-to="acquaintance">Продолжить</Button>
                 </Div>
           </FixedLayout>
-        </form>
+          </Panel>   
     )
   }
 }
