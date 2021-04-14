@@ -9,12 +9,22 @@ import Start from './panels/Start';
 import Acquaintance from './panels/Acquaintance';
 import StudyForm from './panels/StydyForm';
 import Degree from './panels/Degree';
-import Form from './components/Form'
+import AboutStudent from './panels/AboutStudent';
+import HomePage from './panels/HomePage';
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('start');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
+	// const [group, setGroup] = useState('');
+	// const [stud,setStud] = useState('');
+	// const [prof, setProf] = useState('');
+	// const [dorm, setDorm] = useState('');
+	// const [year, setYear] = useState('');
+
+	// updateData((value) => {
+	// 	this.setState({ group:value })
+	//   });
 
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data }}) => {
@@ -43,8 +53,10 @@ const App = () => {
 					<Start id='start' fetchedUser={fetchedUser} go={go} />
 					<Acquaintance id='acquaintance' go={go} />
 					<StudyForm id='study-form' go={go} />
-					<Form id="student-form-filling" go={go} />
 					<Degree id='degree' go={go}/>
+					{/* Ветка два */}
+					<AboutStudent id="student-form-filling" go={go} />
+					<HomePage id='home' fetchedUser={fetchedUser} go={go}/>
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>

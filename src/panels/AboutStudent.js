@@ -10,8 +10,10 @@ import CustomSelectOption from '@vkontakte/vkui/dist/components/CustomSelectOpti
 import FixedLayout from '@vkontakte/vkui/dist/components/FixedLayout/FixedLayout';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
 
+import '../css/AboutStudents.css'
 
-class Form extends Component {
+
+class AboutStudent extends Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -53,7 +55,7 @@ class Form extends Component {
             />
             </FormItem>
             <FormItem top="Группа">
-                <Input type="text" name="group"
+                <Input type="number" name="group"
                     value={this.state.group}
                     onChange={this.handleInputChange}
                     placeholder="201-321" />
@@ -70,13 +72,13 @@ class Form extends Component {
                 />
             </FormItem>
             <FormItem top="Нолмер студенческого">
-                <Input type="text" name="stud"
+                <Input type="number" name="stud"
                     value={this.state.stud}
                     onChange={this.handleInputChange}
                     placeholder="000000000" />
             </FormItem>
             <FormItem top="Нолмер профбилета(при наличии)">
-                <Input type="text" name="prof"
+                <Input type="number" name="prof"
                     value={this.state.prof}
                     onChange={this.handleInputChange}
                     placeholder="000000000" />
@@ -84,7 +86,7 @@ class Form extends Component {
             <FixedLayout filled vertical="bottom">
                 <Div>
                     <Button type="submit" stretched size="l" mode="primary"
-                disabled={!this.state.changed} onClick={this.props.go} data-to="acquaintance">Продолжить</Button>
+                disabled={!this.state.changed} onClick={this.props.go} data-to="home">Продолжить</Button>
                 </Div>
           </FixedLayout>
           </Panel>   
@@ -92,4 +94,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default AboutStudent;
