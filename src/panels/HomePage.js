@@ -32,10 +32,10 @@ class HomePage extends Component {
                     alignItems: 'center',
                     justifyContent: 'center',
                     textAlign: 'center',
-                    padding: 32,
+                    padding: 20,
                   }}>
                     <Avatar src={this.props.fetchedUser.photo_200} size={96} />
-                    <Title style={{ marginBottom: 8, marginTop: 20 }} level="3" weight="medium">{`${this.props.fetchedUser.first_name} ${this.props.fetchedUser.last_name}`}</Title>
+                    <Title style={{ marginBottom: 4, marginTop: 20 }} level="3" weight="medium">{`${this.props.fetchedUser.first_name} ${this.props.fetchedUser.last_name}`}</Title>
                     <Text style={{ color: 'var(--text_secondary)' }}>{this.props.fetchedUser.city && this.props.fetchedUser.city.title ? this.props.fetchedUser.city.title : ''}</Text>
                   </Gradient>
             }
@@ -49,14 +49,14 @@ class HomePage extends Component {
                 <Header mode="secondary" aside={<Text>00000000</Text>}>Профбилет</Header>
             </Group>
             <FixedLayout filled vertical="bottom">
-                <Tabbar>
+                <Tabbar className='tabbar-padding'>
                     <TabbarItem text="Вопросы" onClick={this.props.go} data-to="start">
                         <Icon28InfoCircleOutline/>
                     </TabbarItem>
                     <TabbarItem text="Календарь" onClick={this.props.go} data-to="start">
                         <Icon28CalendarOutline />
                     </TabbarItem>
-                    <TabbarItem text="Профиль" selected onClick={this.props.go} data-to="start">
+                    <TabbarItem text="Профиль" selected>
                         <Icon28UserCircleOutline/>
                     </TabbarItem>
                 </Tabbar>

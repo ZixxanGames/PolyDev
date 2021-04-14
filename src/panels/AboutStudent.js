@@ -71,13 +71,13 @@ class AboutStudent extends Component {
                 )}
                 />
             </FormItem>
-            <FormItem top="Нолмер студенческого">
+            <FormItem top="Номер студенческого">
                 <Input type="number" name="stud"
                     value={this.state.stud}
                     onChange={this.handleInputChange}
                     placeholder="000000000" />
             </FormItem>
-            <FormItem top="Нолмер профбилета(при наличии)">
+            <FormItem top="Номер профбилета(при наличии)">
                 <Input type="number" name="prof"
                     value={this.state.prof}
                     onChange={this.handleInputChange}

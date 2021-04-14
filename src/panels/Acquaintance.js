@@ -26,7 +26,7 @@ const Acquaintance = ({ id, go }) => {
 			<FormLayout>
 				<FormItem top="Анкета">
 					<Radio name="radio" value="newStudent" defaultChecked>Я только собираюсь поступить</Radio>
-					<Radio name="radio" onClick={()=>setAlready(!already)} value="already">Я уже учусь в Московсом Политехе</Radio>
+					<Radio name="radio" onClick={()=>setAlready(!already)} value="already">Я уже учусь в Московском Политехе</Radio>
 				</FormItem>
 			</FormLayout>
 			</Div>
