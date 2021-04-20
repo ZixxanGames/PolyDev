@@ -16,15 +16,6 @@ const App = () => {
 	const [activePanel, setActivePanel] = useState('start');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
-	// const [group, setGroup] = useState('');
-	// const [stud,setStud] = useState('');
-	// const [prof, setProf] = useState('');
-	// const [dorm, setDorm] = useState('');
-	// const [year, setYear] = useState('');
-
-	// updateData((value) => {
-	// 	this.setState({ group:value })
-	//   });
 
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data }}) => {

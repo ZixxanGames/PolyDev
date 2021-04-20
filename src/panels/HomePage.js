@@ -20,6 +20,27 @@ import '../css/Home.css'
 
 
 class HomePage extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+        group: '',
+        stud: '',
+        prof: '',
+        dorm: '',
+        year: '',
+        specialty:'',
+        changed: false
+    }
+  }
+  componentDidMount = () => {
+    const group = localStorage.getItem('group');
+    const stud = localStorage.getItem('stud');
+    const prof = localStorage.getItem('prof');
+    const dorm = localStorage.getItem('dorm');
+    const year = localStorage.getItem('year');
+    const specialty = localStorage.getItem('specialty');
+    this.setState({ stud, group, year, dorm, prof, specialty});
+  }
   render () {
     return (
         <Panel id={this.props.id}> 
@@ -42,11 +63,11 @@ class HomePage extends Component {
             </Div>
             <Group className="group-about">
                 <Header mode="primary">Обо мне</Header>
-                <Header mode="secondary" aside={<Text>201-321</Text>}>Группа</Header>
-                <Header mode="secondary" aside={<Text>1</Text>}>Курс</Header>
-                <Header mode="secondary" aside={<Text>Веб-технологии</Text>}>Направление</Header>
-                <Header mode="secondary" aside={<Text>00000000</Text>}>Студенческий</Header>
-                <Header mode="secondary" aside={<Text>00000000</Text>}>Профбилет</Header>
+                <Header mode="secondary" aside={<Text>{this.state.group}</Text>}>Группа</Header>
+                <Header mode="secondary" aside={<Text>{this.state.year}</Text>}>Курс</Header>
+                <Header mode="secondary" aside={<Text>{this.state.specialty}</Text>}>Направление</Header>
+                <Header mode="secondary" aside={<Text>{this.state.stud}</Text>}>Студенческий</Header>
+                {this.state.prof != '' ? <Header mode="secondary" aside={<Text>{this.state.prof}</Text>}>Профбилет</Header> : null}
             </Group>
             <FixedLayout filled vertical="bottom">
                 <Tabbar className='tabbar-padding'>
