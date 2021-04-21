@@ -54,6 +54,7 @@ class HomePage extends Component {
                     justifyContent: 'center',
                     textAlign: 'center',
                     padding: 20,
+                    background: 'none'
                   }}>
                     <Avatar src={this.props.fetchedUser.photo_200} size={96} />
                     <Title style={{ marginBottom: 4, marginTop: 20 }} level="3" weight="medium">{`${this.props.fetchedUser.first_name} ${this.props.fetchedUser.last_name}`}</Title>
