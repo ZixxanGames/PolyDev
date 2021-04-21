@@ -71,7 +71,7 @@ class HomePage extends Component {
             </Group>
             <FixedLayout filled vertical="bottom">
                 <Tabbar className='tabbar-padding'>
-                    <TabbarItem text="Вопросы" onClick={this.props.go} data-to="start">
+                    <TabbarItem text="Вопросы" onClick={this.props.go} data-to="questions">
                         <Icon28InfoCircleOutline/>
                     </TabbarItem>
                     <TabbarItem text="Календарь" onClick={this.props.go} data-to="start">

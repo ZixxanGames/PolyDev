@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
@@ -17,6 +17,9 @@ import '../css/Radio.css';
 
 const Acquaintance = ({ id, go }) => {
 	const [ already, setAlready ] = useState(true);
+	useEffect(() => {
+		localStorage.clear();
+	  });
 	return(
 	<Panel id={id}>
 		<PanelHeader>PolyApp</PanelHeader>

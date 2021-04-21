@@ -11,9 +11,11 @@ import StudyForm from './panels/StydyForm';
 import Degree from './panels/Degree';
 import AboutStudent from './panels/AboutStudent';
 import HomePage from './panels/HomePage';
+import Questions from './panels/Questions';
 
 const App = () => {
-	const [activePanel, setActivePanel] = useState('start');
+	const checkpoint = localStorage.getItem('group');
+	const [activePanel, setActivePanel] = checkpoint != '' ? useState('start') : useState('home');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 
@@ -48,6 +50,7 @@ const App = () => {
 					{/* Ветка два */}
 					<AboutStudent id="student-form-filling" go={go} />
 					<HomePage id='home' fetchedUser={fetchedUser} go={go}/>
+					<Questions id='questions' go={go}/>
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>

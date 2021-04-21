@@ -19,9 +19,6 @@ import '../css/Start.css';
 
 const Start = ({ id, go, fetchedUser }) => {
 	const [ firstCheckbox, setFirstCheckbox ] = useState(false);
-	useEffect(() => {
-		localStorage.clear();
-	  });
 	return(
 	<Panel id={id}>
 		<PanelHeader>PolyApp</PanelHeader>

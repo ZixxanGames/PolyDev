@@ -47,7 +47,6 @@ class AboutStudent extends Component {
     };
     toStorage = () => {
         const {year, specialty, group, dorm, stud, prof} = this.state;
-        console.log(year, specialty, group, dorm, stud, prof)
         localStorage.setItem('year', year);
         localStorage.setItem('specialty', specialty);
         localStorage.setItem('group', group);
