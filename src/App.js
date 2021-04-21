@@ -14,8 +14,7 @@ import HomePage from './panels/HomePage';
 import Questions from './panels/Questions';
 
 const App = () => {
-	const checkpoint = localStorage.getItem('group');
-	const [activePanel, setActivePanel] = checkpoint != '' ? useState('start') : useState('home');
+	const [activePanel, setActivePanel] = localStorage.getItem('group') == null ? useState('start') : useState('home');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 

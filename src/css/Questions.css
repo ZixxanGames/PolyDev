@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
 }
-.vkuiIcon{
+.card .vkuiIcon{
     width: 100% !important;
     height: 100% !important;
     display: flex;
