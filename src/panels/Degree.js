@@ -33,7 +33,7 @@ const Degree = ({ id, go }) => {
 			</Div>
 			<FixedLayout filled vertical="bottom">
 				<Div>
-					<Button stretched size="l" mode="primary" onClick={go} data-to="acquaintance">
+					<Button stretched size="l" mode="primary" onClick={go} data-to="pick-directions">
 							Далее
 					</Button>
 				</Div>

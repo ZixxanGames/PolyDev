@@ -9,6 +9,7 @@ import Start from './panels/Start';
 import Acquaintance from './panels/Acquaintance';
 import StudyForm from './panels/StydyForm';
 import Degree from './panels/Degree';
+import PickDirections from './panels/PickDirections';
 import AboutStudent from './panels/AboutStudent';
 import HomePage from './panels/HomePage';
 import Questions from './panels/Questions';
@@ -46,6 +47,7 @@ const App = () => {
 					<Acquaintance id='acquaintance' go={go} />
 					<StudyForm id='study-form' go={go} />
 					<Degree id='degree' go={go}/>
+					<PickDirections id='pick-directions' go={go} />
 					{/* Ветка два */}
 					<AboutStudent id="student-form-filling" go={go} />
 					<HomePage id='home' fetchedUser={fetchedUser} go={go}/>
