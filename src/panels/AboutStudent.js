@@ -104,7 +104,7 @@ class AboutStudent extends Component {
                     onChange={this.handleInputChange}
                     placeholder="000000000" />
             </FormItem>
-            <FormItem top="Номер профбилета(необязательно)">
+            <FormItem top="Номер профбилета(необязательно)" style={{marginBlockEnd: 70, writingMode: 'horizontal-tb'}}>
                 <Input type="number" name="prof"
                     autocomplete="off"
                     value={this.state.prof}

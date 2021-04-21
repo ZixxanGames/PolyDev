@@ -55,7 +55,7 @@ render () {
 			</Cell>
 		</List>
 		</Div>
-		<FormItem top="Все направления">
+		<FormItem top="Все направления" style={{marginBlockEnd: 220}}>
 					<ChipsSelect
 						name='groups' 
 						value={this.state.selectedGroups}
