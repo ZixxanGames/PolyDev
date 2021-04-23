@@ -16,7 +16,7 @@ import '../css/Radio.css';
 
 
 const Acquaintance = ({ id, go }) => {
-	const [ already, setAlready ] = useState(true);
+	const [ already, setAlready ] = useState(false);
 	useEffect(() => {
 		localStorage.clear();
 	  });
@@ -26,16 +26,36 @@ const Acquaintance = ({ id, go }) => {
 		<Group>
 			<Div>
 				<Caption className="captionCaps" level="1" weight="semibold" caps >Отлично! A теперь пройди простой тест и расскажи нам немного о себе.</Caption>
+				<FormLayout>
+					<FormItem top="Анкета">
+						<Radio name="radio" onClick={()=>setAlready(!already)} value="already" defaultChecked>Я уже учусь в Московском Политехе</Radio>
+						<Radio name="radio" onClick={()=>setAlready(!already)} value="newStudent">Я только собираюсь поступить</Radio>
+					</FormItem>
+				</FormLayout>
+			</Div>
+			{ already ? 
+			<Div>
+			<Caption className="captionCaps" level="1" weight="semibold" caps >
+				Круто! Мы рады, что тебя привлёк наш университет. Расскажи, какая форма обучения тебя интересует?
+			</Caption>
 			<FormLayout>
-				<FormItem top="Анкета">
-					<Radio name="radio" value="newStudent" defaultChecked>Я только собираюсь поступить</Radio>
-					<Radio name="radio" onClick={()=>setAlready(!already)} value="already">Я уже учусь в Московском Политехе</Radio>
+				<FormItem top="Форма обуение">
+					<Radio name="radio" value="intramural" defaultChecked>Очная</Radio>
+					<Radio name="radio" value="extramural">Заочная</Radio>
 				</FormItem>
 			</FormLayout>
-			</Div>
+			<FormLayout>
+                    <FormItem top="Форма обуение">
+                        <Radio name="radio" value="bachelor" defaultChecked>Бакалавриат</Radio>
+                        <Radio name="radio" value="magistracy">Магистратура</Radio>
+                    </FormItem>
+            </FormLayout>
+		</Div>
+		: null
+		}
 			<FixedLayout filled vertical="bottom">
 				<Div>
-					<Button stretched size="l" mode="primary" onClick={go} data-to={ already ? 'study-form' : 'student-form-filling'} >
+					<Button stretched size="l" mode="primary" onClick={go} data-to={ already ? 'pick-directions' : 'student-form-filling'} >
 							Далее
 					</Button>
 				</Div>

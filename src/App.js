@@ -45,8 +45,8 @@ const App = () => {
 				<View activePanel={activePanel} popout={popout}>
 					<Start id='start' fetchedUser={fetchedUser} go={go} />
 					<Acquaintance id='acquaintance' go={go} />
-					<StudyForm id='study-form' go={go} />
-					<Degree id='degree' go={go}/>
+					{/* <StudyForm id='study-form' go={go} />
+					<Degree id='degree' go={go}/> */}
 					<PickDirections id='pick-directions' go={go} />
 					{/* Ветка два */}
 					<AboutStudent id="student-form-filling" go={go} />
