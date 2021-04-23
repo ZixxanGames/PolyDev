@@ -34,7 +34,7 @@ const Acquaintance = ({ id, go }) => {
 				</FormLayout>
 			</Div>
 			{ already ? 
-			<Div>
+			<Div style={{marginBlockEnd:50}}>
 			<Caption className="captionCaps" level="1" weight="semibold" caps >
 				Круто! Мы рады, что тебя привлёк наш университет. Расскажи, какая форма обучения тебя интересует?
 			</Caption>
