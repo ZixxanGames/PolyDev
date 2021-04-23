@@ -45,7 +45,7 @@ const Acquaintance = ({ id, go }) => {
 				</FormItem>
 			</FormLayout>
 			<FormLayout>
-                    <FormItem top="Форма обуение">
+                    <FormItem top="Ступень обоазования">
                         <Radio name="radio" value="bachelor" defaultChecked>Бакалавриат</Radio>
                         <Radio name="radio" value="magistracy">Магистратура</Radio>
                     </FormItem>
