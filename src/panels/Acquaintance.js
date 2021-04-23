@@ -39,13 +39,13 @@ const Acquaintance = ({ id, go }) => {
 				Круто! Мы рады, что тебя привлёк наш университет. Расскажи, какая форма обучения тебя интересует?
 			</Caption>
 			<FormLayout>
-				<FormItem top="Форма обуение">
+				<FormItem top="Форма обуения">
 					<Radio name="radio" value="intramural" defaultChecked>Очная</Radio>
 					<Radio name="radio" value="extramural">Заочная</Radio>
 				</FormItem>
 			</FormLayout>
 			<FormLayout>
-                    <FormItem top="Ступень обоазования">
+                    <FormItem top="Ступень образования">
                         <Radio name="radio" value="bachelor" defaultChecked>Бакалавриат</Radio>
                         <Radio name="radio" value="magistracy">Магистратура</Radio>
                     </FormItem>
