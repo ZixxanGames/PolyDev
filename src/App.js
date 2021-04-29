@@ -9,7 +9,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Acquaintance from './panels/Acquaintance';
 // import StudyForm from './panels/StydyForm';
 // import Degree from './panels/Degree';
-import PickDirections from './panels/PickDirections';
+import PickDirections from './panels/PickDirections_v2';
 import AboutStudent from './panels/AboutStudent';
 import HomePage from './panels/HomePage';
 import Questions from './panels/Questions';
@@ -59,4 +59,3 @@ const App = () => {
 }
 
 export default App;
-
