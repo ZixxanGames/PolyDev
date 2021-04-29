@@ -51,7 +51,7 @@ render () {
 	return(
 	<Panel id={this.props.id}>
 		<PanelHeader>PolyApp</PanelHeader>
-		<Div style={{marginLeft:16, marginRight: 16, marginTop: 16, background: 'var(--content_tint_background)', borderRadius: 7, fontSize: '1.2rem',}}> 
+		<Div style={{marginLeft:16, marginRight: 16, marginTop: 16, background: 'var(--content_tint_background)', borderRadius: 7 }}> 
 		Хорошо, я всё записал. Вот программы обучения, выбери из них пять, которые тебе интересны.	
 		</Div>
 		<Div  style={{marginLeft: 'auto', }}>
@@ -103,7 +103,7 @@ render () {
 		<FixedLayout filled vertical="bottom">
 			<Div>
         <Button stretched size="l" mode="primary"
-        disabled={!this.state.valid} onClick={this.props.go} data-to="start">Продолжить</Button>
+        disabled={!this.state.valid} onClick={this.props.go} data-to="acquaintance">Продолжить</Button>
       </Div>
 		</FixedLayout>
 	</Panel>
