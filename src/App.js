@@ -5,17 +5,17 @@ import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenS
 import { AdaptivityProvider, AppRoot } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
-import Start from './panels/Start';
+// import Start from './panels/Start';
 import Acquaintance from './panels/Acquaintance';
-import StudyForm from './panels/StydyForm';
-import Degree from './panels/Degree';
+// import StudyForm from './panels/StydyForm';
+// import Degree from './panels/Degree';
 import PickDirections from './panels/PickDirections';
 import AboutStudent from './panels/AboutStudent';
 import HomePage from './panels/HomePage';
 import Questions from './panels/Questions';
 
 const App = () => {
-	const [activePanel, setActivePanel] = localStorage.getItem('group') == null ? useState('start') : useState('home');
+	const [activePanel, setActivePanel] = localStorage.getItem('group') == null ? useState('acquaintance') : useState('home');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 
@@ -43,8 +43,8 @@ const App = () => {
 		<AdaptivityProvider>
 			<AppRoot>
 				<View activePanel={activePanel} popout={popout}>
-					<Start id='start' fetchedUser={fetchedUser} go={go} />
-					<Acquaintance id='acquaintance' go={go} />
+					{/* <Start id='start' go={go} /> */}
+					<Acquaintance fetchedUser={fetchedUser} id='acquaintance' go={go} />
 					{/* <StudyForm id='study-form' go={go} />
 					<Degree id='degree' go={go}/> */}
 					<PickDirections id='pick-directions' go={go} />

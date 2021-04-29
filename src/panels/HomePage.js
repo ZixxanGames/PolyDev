@@ -67,7 +67,7 @@ class HomePage extends Component {
                 <Header mode="secondary" aside={<Text>{this.state.group}</Text>}>Группа</Header>
                 <Header mode="secondary" aside={<Text>{this.state.year}</Text>}>Курс</Header>
                 <Header mode="secondary" aside={<Text>{this.state.specialty}</Text>}>Направление</Header>
-                <Header mode="secondary" aside={<Text>{this.state.stud}</Text>}>Студенческий</Header>
+                {this.state.stud != '' ? <Header mode="secondary" aside={<Text>{this.state.stud}</Text>}>Профбилет</Header> : null}
                 {this.state.prof != '' ? <Header mode="secondary" aside={<Text>{this.state.prof}</Text>}>Профбилет</Header> : null}
             </Group>
             <FixedLayout filled vertical="bottom">
@@ -75,7 +75,7 @@ class HomePage extends Component {
                     <TabbarItem text="Вопросы" onClick={this.props.go} data-to="questions">
                         <Icon28InfoCircleOutline/>
                     </TabbarItem>
-                    <TabbarItem text="Календарь" onClick={this.props.go} data-to="start">
+                    <TabbarItem text="Календарь" onClick={this.props.go} data-to="acquaintance">
                         <Icon28CalendarOutline />
                     </TabbarItem>
                     <TabbarItem text="Профиль" selected>

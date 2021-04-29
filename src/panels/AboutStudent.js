@@ -39,7 +39,7 @@ class AboutStudent extends Component {
         this.setState({
           [name]: value,
         });
-        if (((this.state.year !== '')||(name == 'year'))&&((this.state.specialty !== '')||(name == 'specialty'))&&((this.state.group !== '')||(name == 'group'))&&((this.state.dorm !== '')||(name == 'dorm'))&&((this.state.stud !== '')||(name == 'stud'))){
+        if (((this.state.year !== '')||(name == 'year'))&&((this.state.specialty !== '')||(name == 'specialty'))&&((this.state.group !== '')||(name == 'group'))&&((this.state.dorm !== '')||(name == 'dorm'))){
             this.setState({
                 changed: true
             });
@@ -73,7 +73,7 @@ class AboutStudent extends Component {
                 <Select name="specialty" value={this.state.specialty}
                 onChange={this.handleInputChange}
                 placeholder="Не выбрано" 
-                options={[{value: 'САПР', label: 'САПР'}, {value: 'ВЭБ', label: 'ВЕБ'}]}
+                options={[{value: 'Информационная безопасность автоматизированных систем', label: 'Информационная безопасность автоматизированных систем'}, {value: 'Прикладная математика и информатика (Большие и открытые данные)', label: 'Прикладная математика и информатика (Большие и открытые данные)'},{value: 'Веб-технологии', label: 'Веб-технологии'},{value: 'Интеграция и программирование в САПР', label: 'Интеграция и программирование в САПР'},{value: 'Веб-технологии', label: 'Веб-технологии'},{value: 'Программное обеспечение информационных систем', label: 'Программное обеспечение информационных систем'},{value: 'Киберфизические системы', label: 'Киберфизические системы'},{value: 'Большие и открытые данные', label: 'Большие и открытые данные'},{value: 'Корпоративные информационные системы', label: 'Корпоративные информационные системы'},{value: 'Информационная безопасность', label: 'Информационная безопасность'}]}
                 renderOption={({ option, ...restProps }) => (
                     <CustomSelectOption {...restProps}  />
                 )}

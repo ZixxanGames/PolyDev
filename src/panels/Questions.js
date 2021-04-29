@@ -20,6 +20,27 @@ import { Icon28LightbulbStarOutline } from '@vkontakte/icons';
 import '../css/Questions.css'
 
 class Questions extends Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            category: ''
+        }
+        this.stateChange = this.stateChange.bind(this);
+      }
+    componentDidMount = () =>{
+        localStorage.removeItem('category');
+    }
+    componentWillUnmount = ()=>{
+        localStorage.setItem('category', this.state.category);
+    }
+    stateChange(event) {
+        const target = event.target.childNodes;
+        const value = target.value;
+        this.setState({
+          category: value,
+        });
+        console.log(target, value)
+    }
   render () {
     return (
         <Panel id={this.props.id}> 
@@ -29,19 +50,19 @@ class Questions extends Component {
                     <Caption className="captionCaps" level="1" weight="semibold" caps >Категории вопросов</Caption>
                 </Div>
                 <CardGrid size="m">
-                    <Card className='card' onClick={this.props.go} data-to="start">
-                        <Icon36HomeOutline className="icon"/>
+                    <Card className='card'  onClick={this.stateChange} value='dorms'  data-to="home">
+                        <Icon36HomeOutline  onClick={this.stateChange} value='dorms' className="icon"/>
                         <Caption level="1" weight="semibold" caps style={{ marginTop: 10 }}>Общежития</Caption>
                     </Card>
-                    <Card className='card' onClick={this.props.go} data-to="start">
+                    <Card className='card' value='dorms' onClick={this.props.go} data-to="home">
                         <Icon28BookOutline className="icon"/>
                         <Caption level="1" weight="semibold" caps style={{ marginTop: 10 }}>Учёба</Caption>
                     </Card>
-                    <Card className='card' onClick={this.props.go} data-to="start">
+                    <Card className='card' value='dorms' onClick={this.props.go} data-to="home">
                         <Icon56SchoolOutline className="icon"/>
                         <Caption level="1" weight="semibold" caps style={{ marginTop: 10 }}>Корпуса</Caption>
                     </Card>
-                    <Card className='card' onClick={this.props.go} data-to="start">
+                    <Card className='card' value='dorms' onClick={this.props.go} data-to="home">
                         <Icon28LightbulbStarOutline className="icon"/>
                         <Caption level="1" weight="semibold" caps style={{ marginTop: 10 }}>ПД</Caption>
                     </Card>
@@ -52,7 +73,7 @@ class Questions extends Component {
                     <TabbarItem text="Вопросы" selected>
                         <Icon28InfoCircleOutline/>
                     </TabbarItem>
-                    <TabbarItem text="Календарь" onClick={this.props.go} data-to="start">
+                    <TabbarItem text="Календарь" onClick={this.props.go} data-to="acquaintance">
                         <Icon28CalendarOutline />
                     </TabbarItem>
                     <TabbarItem text="Профиль" onClick={this.props.go} data-to="home">

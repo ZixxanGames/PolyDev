@@ -11,11 +11,15 @@ import FormLayout from '@vkontakte/vkui/dist/components/FormLayout/FormLayout';
 import Radio from '@vkontakte/vkui/dist/components/Radio/Radio';
 import {FormItem} from '@vkontakte/vkui/dist/components/FormItem/FormItem';
 import FixedLayout from '@vkontakte/vkui/dist/components/FixedLayout/FixedLayout';
+import {Cell} from '@vkontakte/vkui/dist/components/Cell/Cell';
+import Subhead from '@vkontakte/vkui/dist/components/Typography/Subhead/Subhead';
+import Header from '@vkontakte/vkui/dist/components/Header/Header';
+import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 
 import '../css/Radio.css';
 
 
-const Acquaintance = ({ id, go }) => {
+const Acquaintance = ({ id, go, fetchedUser }) => {
 	const [ already, setAlready ] = useState(false);
 	useEffect(() => {
 		localStorage.clear();
@@ -23,9 +27,20 @@ const Acquaintance = ({ id, go }) => {
 	return(
 	<Panel id={id}>
 		<PanelHeader>PolyApp</PanelHeader>
+		{fetchedUser &&
+		<Group header={<Header mode="primary">Приветствуем тебя</Header>}>
+			<Div className="homepage-subhead">
+				<Subhead weight="semibold">Это мобильное приложения Московского Политеха</Subhead>
+			</Div>
+			<Cell
+				before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}
+				description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
+			>
+				{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
+			</Cell>
+		</Group>}
 		<Group>
 			<Div>
-				<Caption className="captionCaps" level="1" weight="semibold" caps >Отлично! A теперь пройди простой тест и расскажи нам немного о себе.</Caption>
 				<FormLayout>
 					<FormItem top="Анкета">
 						<Radio name="radio" onClick={()=>setAlready(!already)} value="already" defaultChecked>Я уже учусь в Московском Политехе</Radio>
@@ -68,6 +83,14 @@ const Acquaintance = ({ id, go }) => {
 Acquaintance.propTypes = {
 	id: PropTypes.string.isRequired,
 	go: PropTypes.func.isRequired,
+	fetchedUser: PropTypes.shape({
+		photo_200: PropTypes.string,
+		first_name: PropTypes.string,
+		last_name: PropTypes.string,
+		city: PropTypes.shape({
+			title: PropTypes.string,
+		}),
+	}),
 };
 
 export default Acquaintance;
