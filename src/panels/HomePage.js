@@ -68,7 +68,7 @@ class HomePage extends Component {
                 <Header mode="secondary" aside={<Text>{this.state.group}</Text>}>Группа:</Header>
                 <Header mode="secondary" aside={<Text>{this.state.year}</Text>}>Курс:</Header>
                 <Header mode="secondary">Направление:</Header>
-                <Div><Text>{this.state.specialty}</Text></Div>
+                <Div><Text style={{textAlign:'center'}}>{this.state.specialty}</Text></Div>
                 {this.state.stud != '' ? <Header mode="secondary" aside={<Text>{this.state.stud}</Text>}>Студенческий:</Header> : null}
                 {this.state.prof != '' ? <Header mode="secondary" aside={<Text>{this.state.prof}</Text>}>Профбилет:</Header> : null}
             </Group>
