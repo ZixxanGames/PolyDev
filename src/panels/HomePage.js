@@ -33,6 +33,7 @@ class HomePage extends Component {
     }
   }
   componentDidMount = () => {
+    localStorage.removeItem('category');
     const group = localStorage.getItem('group');
     const stud = localStorage.getItem('stud');
     const prof = localStorage.getItem('prof');
@@ -64,11 +65,12 @@ class HomePage extends Component {
             </Div>
             <Group className="group-about">
                 <Header mode="primary">Обо мне</Header>
-                <Header mode="secondary" aside={<Text>{this.state.group}</Text>}>Группа</Header>
-                <Header mode="secondary" aside={<Text>{this.state.year}</Text>}>Курс</Header>
-                <Header mode="secondary" aside={<Text>{this.state.specialty}</Text>}>Направление</Header>
-                {this.state.stud != '' ? <Header mode="secondary" aside={<Text>{this.state.stud}</Text>}>Профбилет</Header> : null}
-                {this.state.prof != '' ? <Header mode="secondary" aside={<Text>{this.state.prof}</Text>}>Профбилет</Header> : null}
+                <Header mode="secondary" aside={<Text>{this.state.group}</Text>}>Группа:</Header>
+                <Header mode="secondary" aside={<Text>{this.state.year}</Text>}>Курс:</Header>
+                <Header mode="secondary">Направление:</Header>
+                <Div><Text>{this.state.specialty}</Text></Div>
+                {this.state.stud != '' ? <Header mode="secondary" aside={<Text>{this.state.stud}</Text>}>Студенческий:</Header> : null}
+                {this.state.prof != '' ? <Header mode="secondary" aside={<Text>{this.state.prof}</Text>}>Профбилет:</Header> : null}
             </Group>
             <FixedLayout filled vertical="bottom">
                 <Tabbar className='tabbar-padding'>
