@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
@@ -25,21 +26,22 @@ class Questions extends Component {
         this.state = {
             category: ''
         }
-        this.stateChange = this.stateChange.bind(this);
       }
     componentDidMount = () =>{
         localStorage.removeItem('category');
     }
-    componentWillUnmount = ()=>{
-        localStorage.setItem('category', this.state.category);
-    }
-    stateChange(event) {
-        const target = event.target.childNodes;
-        const value = target.value;
+    onClick = (cat) => (event) => {
         this.setState({
-          category: value,
-        });
-        console.log(target, value)
+            category: cat
+        })
+        setTimeout(() => {
+            this.stateChange();
+          }, 1000);
+        this.props.go(event);
+    }
+    stateChange = () => {
+        const category = this.state.category;
+        localStorage.setItem('category', category);
     }
   render () {
     return (
@@ -50,19 +52,19 @@ class Questions extends Component {
                     <Caption className="captionCaps" level="1" weight="semibold" caps >Категории вопросов</Caption>
                 </Div>
                 <CardGrid size="m">
-                    <Card className='card'  onClick={this.stateChange} value='dorms'  data-to="home">
-                        <Icon36HomeOutline  onClick={this.stateChange} value='dorms' className="icon"/>
+                    <Card className='card'  onClick={this.onClick('dorms')}  data-to="questions-list">
+                        <Icon36HomeOutline  className="icon"/>
                         <Caption level="1" weight="semibold" caps style={{ marginTop: 10 }}>Общежития</Caption>
                     </Card>
-                    <Card className='card' value='dorms' onClick={this.props.go} data-to="home">
+                    <Card className='card' onClick={this.onClick('study')} data-to="questions-list">
                         <Icon28BookOutline className="icon"/>
                         <Caption level="1" weight="semibold" caps style={{ marginTop: 10 }}>Учёба</Caption>
                     </Card>
-                    <Card className='card' value='dorms' onClick={this.props.go} data-to="home">
+                    <Card className='card' onClick={this.onClick('buildings')} data-to="questions-list">
                         <Icon56SchoolOutline className="icon"/>
                         <Caption level="1" weight="semibold" caps style={{ marginTop: 10 }}>Корпуса</Caption>
                     </Card>
-                    <Card className='card' value='dorms' onClick={this.props.go} data-to="home">
+                    <Card className='card' onClick={this.onClick('PD')} data-to="questions-list">
                         <Icon28LightbulbStarOutline className="icon"/>
                         <Caption level="1" weight="semibold" caps style={{ marginTop: 10 }}>ПД</Caption>
                     </Card>
@@ -85,5 +87,10 @@ class Questions extends Component {
     )
   }
 }
+
+Questions.propTypes = {
+    id: PropTypes.string.isRequired,
+    go: PropTypes.func.isRequired
+  };
 
 export default Questions;

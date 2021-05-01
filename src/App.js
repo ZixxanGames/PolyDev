@@ -13,6 +13,7 @@ import PickDirections from './panels/PickDirections_v2';
 import AboutStudent from './panels/AboutStudent';
 import HomePage from './panels/HomePage';
 import Questions from './panels/Questions';
+import QuestionsList from './panels/QustionList';
 
 const App = () => {
 	const [activePanel, setActivePanel] = localStorage.getItem('group') == null ? useState('acquaintance') : useState('home');
@@ -52,6 +53,7 @@ const App = () => {
 					<AboutStudent id="student-form-filling" go={go} />
 					<HomePage id='home' fetchedUser={fetchedUser} go={go}/>
 					<Questions id='questions' go={go}/>
+					<QuestionsList id='questions-list' go={go}/>
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>

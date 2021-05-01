@@ -1,0 +1,38 @@
+{
+    "study": [
+        {
+            "question": "Как получить 'справку об обучении'",
+            "instruction": "Зайдите в личный кабинет, заполните контактные данные и отправтье запрос.",
+            "links": [
+                "https://e.mospolytech.ru/index.php?p=sprav&form=obuch",
+                "https://e.mospolytech.ru/index.php"
+            ]
+        },
+        {
+            "question": "Как получить 'справку об обучении'",
+            "instruction": "Зайдите в личный кабинет, заполните контактные данные и отправтье запрос.",
+            "links": [
+                "https://e.mospolytech.ru/index.php?p=sprav&form=obuch",
+                "https://e.mospolytech.ru/index.php"
+            ]
+        },
+        {
+            "question": "Как получить 'справку об обучении'",
+            "instruction": "Зайдите в личный кабинет, заполните контактные данные и отправтье запрос.",
+            "links": [
+                "https://e.mospolytech.ru/index.php?p=sprav&form=obuch",
+                "https://e.mospolytech.ru/index.php"
+            ]
+        }
+    ],
+    "dorms": [
+        {
+            "question": "Оформление регистрации для иностранцев",
+            "instruction": "инструкция все такое",
+            "links": [
+                "https://e.mospolytech.ru/index.php?p=sprav&form=obuch",
+                "https://e.mospolytech.ru/index.php"
+            ]
+        }
+    ]
+}
