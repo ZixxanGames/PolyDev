@@ -10,6 +10,7 @@ import Select from '@vkontakte/vkui/dist/components/Select/Select';
 import CustomSelectOption from '@vkontakte/vkui/dist/components/CustomSelectOption/CustomSelectOption';
 import FixedLayout from '@vkontakte/vkui/dist/components/FixedLayout/FixedLayout';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
+import { PanelHeaderBack } from '@vkontakte/vkui';
 
 import '../css/AboutStudents.css'
 
@@ -58,7 +59,7 @@ class AboutStudent extends Component {
   render () {
     return (
         <Panel id={this.props.id}> 
-            <PanelHeader>PolyApp</PanelHeader>
+            <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='acquaintance'/>}>PolyApp</PanelHeader>
             <FormItem top="Курс">
             <Select name = "year" value={this.state.year}
             onChange={this.handleInputChange}

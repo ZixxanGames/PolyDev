@@ -11,6 +11,8 @@ import Counter from '@vkontakte/vkui/dist/components/Counter/Counter';
 import FixedLayout from '@vkontakte/vkui/dist/components/FixedLayout/FixedLayout';
 import Button from '@vkontakte/vkui/dist/components/Button/Button';
 import Title from '@vkontakte/vkui/dist/components/Typography/Title/Title';
+import { PanelHeaderBack } from '@vkontakte/vkui';
+
 import '../css/PickDirections_v2.css';
 
 class PickDirections_v2 extends Component{
@@ -50,7 +52,7 @@ class PickDirections_v2 extends Component{
 render () {
 	return(
 	<Panel id={this.props.id}>
-		<PanelHeader>PolyApp</PanelHeader>
+		<PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='acquaintance'/>}>PolyApp</PanelHeader>
 		<Div style={{marginLeft:16, marginRight: 16, marginTop: 16, background: 'var(--content_tint_background)', borderRadius: 7 }}> 
 		Хорошо, я всё записал. Вот программы обучения, выбери из них пять, которые тебе интересны.	
 		</Div>

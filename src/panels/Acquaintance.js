@@ -20,7 +20,7 @@ import '../css/Radio.css';
 
 
 const Acquaintance = ({ id, go, fetchedUser }) => {
-	const [ already, setAlready ] = useState(false);
+	const [ want, setWant ] = useState(false);
 	useEffect(() => {
 		localStorage.clear();
 	  });
@@ -43,12 +43,12 @@ const Acquaintance = ({ id, go, fetchedUser }) => {
 			<Div>
 				<FormLayout>
 					<FormItem top="Анкета">
-						<Radio name="radio" onClick={()=>setAlready(!already)} value="already" defaultChecked>Я уже учусь в Московском Политехе</Radio>
-						<Radio name="radio" onClick={()=>setAlready(!already)} value="newStudent">Я только собираюсь поступить</Radio>
+						<Radio name="radio" onClick={()=>setWant(false)} value="already" defaultChecked>Я уже учусь в Московском Политехе</Radio>
+						<Radio name="radio" onClick={()=>setWant(true)} value="newStudent">Я только собираюсь поступить</Radio>
 					</FormItem>
 				</FormLayout>
 			</Div>
-			{ already ? 
+			{ want ? 
 			<Div style={{marginBlockEnd:50}}>
 			<Caption className="captionCaps" level="1" weight="semibold" caps >
 				Круто! Мы рады, что тебя привлёк наш университет. Расскажи, какая форма обучения тебя интересует?
@@ -70,7 +70,7 @@ const Acquaintance = ({ id, go, fetchedUser }) => {
 		}
 			<FixedLayout filled vertical="bottom">
 				<Div>
-					<Button stretched size="l" mode="primary" onClick={go} data-to={ already ? 'pick-directions' : 'student-form-filling'} >
+					<Button stretched size="l" mode="primary" onClick={go} data-to={ want ? 'pick-directions' : 'student-form-filling'} >
 							Далее
 					</Button>
 				</Div>

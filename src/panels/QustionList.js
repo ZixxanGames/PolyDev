@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
@@ -11,38 +11,42 @@ import { Tabbar, TabbarItem } from '@vkontakte/vkui';
 import { Icon28UserCircleOutline } from '@vkontakte/icons';
 import { Icon28CalendarOutline } from '@vkontakte/icons';
 import { Icon28InfoCircleOutline } from '@vkontakte/icons';
+import { PanelHeaderBack } from '@vkontakte/vkui';
+
 
 import RenderQuestions from '../components/RenderQuestions';
 
 class QuestionsList extends Component {
-  render () {
-    return (
-        <Panel id={this.props.id}> 
-            <PanelHeader>PolyApp</PanelHeader>
-            <Group>
-                <RenderQuestions/>
-            </Group>
-            <FixedLayout filled vertical="bottom">
-                <Tabbar className='tabbar-padding'>
-                    <TabbarItem text="Вопросы" selected>
-                        <Icon28InfoCircleOutline/>
-                    </TabbarItem>
-                    <TabbarItem text="Календарь" onClick={this.props.go} data-to="acquaintance">
-                        <Icon28CalendarOutline />
-                    </TabbarItem>
-                    <TabbarItem text="Профиль" onClick={this.props.go} data-to="home">
-                        <Icon28UserCircleOutline/>
-                    </TabbarItem>
-                </Tabbar>
-            </FixedLayout>
-        </Panel>   
-    )
-  }
+    render() {
+        return (
+            <Panel id={this.props.id}>
+                <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='questions' />}>PolyApp</PanelHeader>
+                <Group>
+                    <Div>
+                        <RenderQuestions />
+                    </Div>
+                </Group>
+                <FixedLayout filled vertical="bottom">
+                    <Tabbar className='tabbar-padding'>
+                        <TabbarItem selected text="Вопросы" onClick={this.props.go} data-to="questions">
+                            <Icon28InfoCircleOutline />
+                        </TabbarItem>
+                        <TabbarItem text="Календарь" onClick={this.props.go} data-to="acquaintance">
+                            <Icon28CalendarOutline />
+                        </TabbarItem>
+                        <TabbarItem text="Профиль" onClick={this.props.go} data-to="home">
+                            <Icon28UserCircleOutline />
+                        </TabbarItem>
+                    </Tabbar>
+                </FixedLayout>
+            </Panel>
+        )
+    }
 }
 
 QuestionsList.propTypes = {
     id: PropTypes.string.isRequired,
     go: PropTypes.func.isRequired
-  };
+};
 
 export default QuestionsList;
