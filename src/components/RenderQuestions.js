@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
@@ -9,17 +10,63 @@ import { Icon24ArticleOutline } from '@vkontakte/icons';
 import SimpleCell from '@vkontakte/vkui/dist/components/SimpleCell/SimpleCell';
 import Text from '@vkontakte/vkui/dist/components/Typography/Text/Text';
 
-import data from '../json/Questions.json';
-
-var category = localStorage.getItem('category');
+import jsonData from '../json/Questions.json';
 
 class renderQusstions extends Component {
-  render () {
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: []
+    }
+  }
+  componentDidMount() {
+    let json = jsonData;
+    this.setState({ data: json });
+    console.log(json);
+    console.log(this.props.category);
+  }
+  render() {
     return (
-            <SimpleCell before={<Icon24ArticleOutline/>}>
-                Лёша гей
-            </SimpleCell>
+      <Div>
+        {this.props.category == 'dorms' && this.state.data.length !== 0 &&
+          this.state.data.dorms.map((unit, index) => {
+            return (
+              <SimpleCell before={<Icon24ArticleOutline />} key={index}>{unit.question}</SimpleCell>
+            )
+          }
+          )
+        }
+        {this.props.category == 'study' && this.state.data.length !== 0 &&
+          this.state.data.study.map((unit, index) => {
+            return (
+              <SimpleCell before={<Icon24ArticleOutline />} key={index}>{unit.question}</SimpleCell>
+            )
+          }
+          )
+        }
+        {/* {this.props.category == 'buildings' && this.state.data.length !== 0 &&
+          this.state.data.buildings.map((unit, index) => {
+            return (
+              <SimpleCell before={<Icon24ArticleOutline />} key={index}>{unit.question}</SimpleCell>
+            )
+          }
+          )
+        }
+        {this.props.category == 'PD' && this.state.data.length !== 0 &&
+          this.state.data.PD.map((unit, index) => {
+            return (
+              <SimpleCell before={<Icon24ArticleOutline />} key={index}>{unit.question}</SimpleCell>
+            )
+          }
+          )
+        } */}
+      </Div>
     )
   }
 }
+
+renderQusstions.propTypes = {
+  category: PropTypes.string.isRequired,
+};
+
 export default renderQusstions;

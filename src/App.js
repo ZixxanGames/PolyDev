@@ -19,6 +19,7 @@ const App = () => {
 	const [activePanel, setActivePanel] = localStorage.getItem('group') == null ? useState('acquaintance') : useState('home');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
+	const [category, setCategory] = useState('');
 
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data }}) => {
@@ -40,6 +41,10 @@ const App = () => {
 		setActivePanel(e.currentTarget.dataset.to);
 	};
 
+	const updateData = (value) => {
+		setCategory(value)
+	 }
+
 	return (
 		<AdaptivityProvider>
 			<AppRoot>
@@ -52,8 +57,8 @@ const App = () => {
 					{/* Ветка два */}
 					<AboutStudent id="student-form-filling" go={go} />
 					<HomePage id='home' fetchedUser={fetchedUser} go={go}/>
-					<Questions id='questions' go={go}/>
-					<QuestionsList id='questions-list' go={go}/>
+					<Questions updateData={updateData} id='questions' go={go}/>
+					<QuestionsList category={category} id='questions-list' go={go}/>
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>

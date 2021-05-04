@@ -13,7 +13,6 @@ import { Icon28CalendarOutline } from '@vkontakte/icons';
 import { Icon28InfoCircleOutline } from '@vkontakte/icons';
 import { PanelHeaderBack } from '@vkontakte/vkui';
 
-
 import RenderQuestions from '../components/RenderQuestions';
 
 class QuestionsList extends Component {
@@ -22,9 +21,7 @@ class QuestionsList extends Component {
             <Panel id={this.props.id}>
                 <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='questions' />}>PolyApp</PanelHeader>
                 <Group>
-                    <Div>
-                        <RenderQuestions />
-                    </Div>
+                    <RenderQuestions category={this.props.category}/>
                 </Group>
                 <FixedLayout filled vertical="bottom">
                     <Tabbar className='tabbar-padding'>
@@ -46,7 +43,8 @@ class QuestionsList extends Component {
 
 QuestionsList.propTypes = {
     id: PropTypes.string.isRequired,
-    go: PropTypes.func.isRequired
+    go: PropTypes.func.isRequired,
+    category: PropTypes.string.isRequired
 };
 
 export default QuestionsList;

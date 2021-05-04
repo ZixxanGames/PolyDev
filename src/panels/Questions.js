@@ -31,17 +31,8 @@ class Questions extends Component {
         localStorage.removeItem('category');
     }
     onClick = (cat) => (event) => {
-        this.setState({
-            category: cat
-        })
-        setTimeout(() => {
-            this.stateChange();
-          }, 1000);
+        this.props.updateData(cat);
         this.props.go(event);
-    }
-    stateChange = () => {
-        const category = this.state.category;
-        localStorage.setItem('category', category);
     }
   render () {
     return (
@@ -90,7 +81,8 @@ class Questions extends Component {
 
 Questions.propTypes = {
     id: PropTypes.string.isRequired,
-    go: PropTypes.func.isRequired
+    go: PropTypes.func.isRequired,
+    updateData: PropTypes.func.isRequired
   };
 
 export default Questions;

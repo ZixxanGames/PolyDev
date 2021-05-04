@@ -9,7 +9,7 @@
             ]
         },
         {
-            "question": "Как получить 'справку об обучении'",
+            "question": "Как получить стипендию",
             "instruction": "Зайдите в личный кабинет, заполните контактные данные и отправтье запрос.",
             "links": [
                 "https://e.mospolytech.ru/index.php?p=sprav&form=obuch",
@@ -17,7 +17,7 @@
             ]
         },
         {
-            "question": "Как получить 'справку об обучении'",
+            "question": "Как получить по жопе",
             "instruction": "Зайдите в личный кабинет, заполните контактные данные и отправтье запрос.",
             "links": [
                 "https://e.mospolytech.ru/index.php?p=sprav&form=obuch",
