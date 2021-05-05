@@ -4,24 +4,42 @@
             "question": "Как получить 'справку об обучении'",
             "instruction": "Зайдите в личный кабинет, заполните контактные данные и отправтье запрос.",
             "links": [
-                "https://e.mospolytech.ru/index.php?p=sprav&form=obuch",
-                "https://e.mospolytech.ru/index.php"
+                {
+                    "name": "Справки и заявления",
+                    "href": "https://e.mospolytech.ru/index.php?p=sprav&form=obuch"
+                },
+                {
+                    "name": "Личный кабинет студента",
+                    "href": "https://e.mospolytech.ru/index.php"
+                }
             ]
         },
         {
             "question": "Как получить стипендию",
             "instruction": "Зайдите в личный кабинет, заполните контактные данные и отправтье запрос.",
             "links": [
-                "https://e.mospolytech.ru/index.php?p=sprav&form=obuch",
-                "https://e.mospolytech.ru/index.php"
+                {
+                    "name": "Справки и заявления",
+                    "href": "https://e.mospolytech.ru/index.php?p=sprav&form=obuch"
+                },
+                {
+                    "name": "Личный кабинет студента",
+                    "href": "https://e.mospolytech.ru/index.php"
+                }
             ]
         },
         {
             "question": "Как получить по жопе",
             "instruction": "Зайдите в личный кабинет, заполните контактные данные и отправтье запрос.",
             "links": [
-                "https://e.mospolytech.ru/index.php?p=sprav&form=obuch",
-                "https://e.mospolytech.ru/index.php"
+                {
+                    "name": "Справки и заявления",
+                    "href": "https://e.mospolytech.ru/index.php?p=sprav&form=obuch"
+                },
+                {
+                    "name": "Личный кабинет студента",
+                    "href": "https://e.mospolytech.ru/index.php"
+                }
             ]
         }
     ],
@@ -30,8 +48,14 @@
             "question": "Оформление регистрации для иностранцев",
             "instruction": "инструкция все такое",
             "links": [
-                "https://e.mospolytech.ru/index.php?p=sprav&form=obuch",
-                "https://e.mospolytech.ru/index.php"
+                {
+                    "name": "Справки и заявления",
+                    "href": "https://e.mospolytech.ru/index.php?p=sprav&form=obuch"
+                },
+                {
+                    "name": "Личный кабинет студента",
+                    "href": "https://e.mospolytech.ru/index.php"
+                }
             ]
         }
     ]

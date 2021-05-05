@@ -21,7 +21,7 @@ class QuestionsList extends Component {
             <Panel id={this.props.id}>
                 <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='questions' />}>PolyApp</PanelHeader>
                 <Group>
-                    <RenderQuestions category={this.props.category}/>
+                    <RenderQuestions go={this.props.go} updateQuestion={this.props.updateQuestion} category={this.props.category}/>
                 </Group>
                 <FixedLayout filled vertical="bottom">
                     <Tabbar className='tabbar-padding'>
@@ -44,7 +44,8 @@ class QuestionsList extends Component {
 QuestionsList.propTypes = {
     id: PropTypes.string.isRequired,
     go: PropTypes.func.isRequired,
-    category: PropTypes.string.isRequired
+    category: PropTypes.string.isRequired,
+    updateQuestion: PropTypes.func.isRequired
 };
 
 export default QuestionsList;

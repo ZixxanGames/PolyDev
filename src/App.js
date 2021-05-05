@@ -14,15 +14,17 @@ import AboutStudent from './panels/AboutStudent';
 import HomePage from './panels/HomePage';
 import Questions from './panels/Questions';
 import QuestionsList from './panels/QustionList';
+import Instruction from './panels/Instruction';
 
 const App = () => {
 	const [activePanel, setActivePanel] = localStorage.getItem('group') == null ? useState('acquaintance') : useState('home');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 	const [category, setCategory] = useState('');
+	const [question, setQuestion] = useState(null);
 
 	useEffect(() => {
-		bridge.subscribe(({ detail: { type, data }}) => {
+		bridge.subscribe(({ detail: { type, data } }) => {
 			if (type === 'VKWebAppUpdateConfig') {
 				const schemeAttribute = document.createAttribute('scheme');
 				schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
@@ -43,7 +45,10 @@ const App = () => {
 
 	const updateData = (value) => {
 		setCategory(value)
-	 }
+	}
+	const updateQuestion = (value) => {
+		setQuestion(value)
+	}
 
 	return (
 		<AdaptivityProvider>
@@ -56,9 +61,10 @@ const App = () => {
 					<PickDirections id='pick-directions' go={go} />
 					{/* Ветка два */}
 					<AboutStudent id="student-form-filling" go={go} />
-					<HomePage id='home' fetchedUser={fetchedUser} go={go}/>
-					<Questions updateData={updateData} id='questions' go={go}/>
-					<QuestionsList category={category} id='questions-list' go={go}/>
+					<HomePage id='home' fetchedUser={fetchedUser} go={go} />
+					<Questions updateData={updateData} id='questions' go={go} />
+					<QuestionsList updateQuestion={updateQuestion} category={category} id='questions-list' go={go} />
+					<Instruction question={question} category={category} id='instruction' go={go} />
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>
