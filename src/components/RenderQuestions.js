@@ -46,7 +46,7 @@ class renderQusstions extends Component {
           }
           )
         }
-        {/* {this.props.category == 'buildings' && this.state.data.length !== 0 &&
+        {this.props.category == 'buildings' && this.state.data.length !== 0 &&
           this.state.data.buildings.map((unit, index) => {
             return (
               <SimpleCell onClick={this.onClick(unit)} data-to="instruction" before={<Icon24ArticleOutline />} key={index}>{unit.question}</SimpleCell>
@@ -55,13 +55,13 @@ class renderQusstions extends Component {
           )
         }
         {this.props.category == 'PD' && this.state.data.length !== 0 &&
-          this.state.data.PD.map((unit, index) => {
+          this.state.data.pd.map((unit, index) => {
             return (
               <SimpleCell onClick={this.onClick(unit)} data-to="instruction" before={<Icon24ArticleOutline />} key={index}>{unit.question}</SimpleCell>
             )
           }
           )
-        } */}
+        }
       </Div>
     )
   }

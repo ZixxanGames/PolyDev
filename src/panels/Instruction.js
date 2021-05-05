@@ -38,15 +38,14 @@ class Instruction extends Component {
                     {this.props.category == 'study' ? <Icon28BookOutline className="instruction__icon" /> : null}
                     {this.props.category == 'buildings' ? <Icon56SchoolOutline className="instruction__icon" /> : null}
                     {this.props.category == 'PD' ? <Icon28LightbulbStarOutline className="instruction__icon" /> : null}
-                    <Title style={{ marginBottom: 4, marginTop: 10, textAlign: 'center' }} level="3" weight="medium">{this.props.question.question}</Title>
+                    <Title style={{ marginBottom: 4, marginTop: 10, textAlign: 'center' }} level="2" weight="medium">{this.props.question.question}</Title>
                 </Div>
-                <Group className="group-about">
+                <Group className="group-about" style={{marginBottom:130}}>
                     <Header mode="secondary">Инструкция</Header>
                     <Div><Text>{this.props.question.instruction}</Text></Div>
-                    <Header mode="secondary">Полезные ссылки</Header>
+                    {this.props.question.links.length !== 0 ? <Header mode="secondary">Полезные ссылки</Header> : null}
                         {this.props.question.links !== 0 &&
                             this.props.question.links.map((link, index) => {
-                                console.log(link)
                                 return (
                                     <Div style={{paddingBottom:0}}><Link key={index} className='link-instruction' href={link.href} target="_blank">{link.name}</Link></Div>
                                 )
