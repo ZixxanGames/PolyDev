@@ -10,6 +10,8 @@ import Acquaintance from './panels/Acquaintance';
 // import StudyForm from './panels/StydyForm';
 // import Degree from './panels/Degree';
 import PickDirections from './panels/PickDirections_v2';
+import AboutDirection from './panels/AboutDirection';
+import ChoosedDirectionsInfo from './panels/ChoosedDirectionsInfo';
 import AboutStudent from './panels/AboutStudent';
 import HomePage from './panels/HomePage';
 import Questions from './panels/Questions';
@@ -59,6 +61,8 @@ const App = () => {
 					{/* <StudyForm id='study-form' go={go} />
 					<Degree id='degree' go={go}/> */}
 					<PickDirections id='pick-directions' go={go} />
+					<AboutDirection id='about-direction' go={go} />
+					<ChoosedDirectionsInfo id='choosed-directions-info' go={go}/>
 					{/* Ветка два */}
 					<AboutStudent id="student-form-filling" go={go} />
 					<HomePage id='home' fetchedUser={fetchedUser} go={go} />
