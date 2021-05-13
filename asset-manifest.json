@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/PolyDev/static/css/main.7aa92985.chunk.css",
+    "main.css": "/PolyDev/static/css/main.94445e72.chunk.css",
     "main.js": "/PolyDev/static/js/main.4f3a881b.chunk.js",
     "main.js.map": "/PolyDev/static/js/main.4f3a881b.chunk.js.map",
     "runtime-main.js": "/PolyDev/static/js/runtime-main.7cbd0ce7.js",
@@ -10,14 +10,14 @@
     "static/js/2.e921cacc.chunk.js.map": "/PolyDev/static/js/2.e921cacc.chunk.js.map",
     "index.html": "/PolyDev/index.html",
     "static/css/2.a2ab3232.chunk.css.map": "/PolyDev/static/css/2.a2ab3232.chunk.css.map",
-    "static/css/main.7aa92985.chunk.css.map": "/PolyDev/static/css/main.7aa92985.chunk.css.map",
+    "static/css/main.94445e72.chunk.css.map": "/PolyDev/static/css/main.94445e72.chunk.css.map",
     "static/js/2.e921cacc.chunk.js.LICENSE.txt": "/PolyDev/static/js/2.e921cacc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7cbd0ce7.js",
     "static/css/2.a2ab3232.chunk.css",
     "static/js/2.e921cacc.chunk.js",
-    "static/css/main.7aa92985.chunk.css",
+    "static/css/main.94445e72.chunk.css",
     "static/js/main.4f3a881b.chunk.js"
   ]
 }
