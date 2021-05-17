@@ -47,7 +47,7 @@ class Acquaintance extends Component {
 				{this.props.fetchedUser &&
 					<Group header={<Header mode="primary">Приветствуем тебя</Header>}>
 						<Div className="homepage-subhead">
-							<Subhead weight="semibold">Это мобильное приложения Московского Политеха</Subhead>
+							<Subhead weight="semibold">Это мобильное приложение Московского Политеха</Subhead>
 						</Div>
 						<Cell
 							before={this.props.fetchedUser.photo_200 ? <Avatar src={this.props.fetchedUser.photo_200} /> : null}
