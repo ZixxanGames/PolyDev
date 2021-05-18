@@ -57,13 +57,13 @@ class AboutStudent extends Component {
         let studValid = this.state.studValid;
         switch (fieldName) {
             case 'group':
-                groupValid = value.match(/\d{6}$/i);
+                groupValid = value.match(/\d{6}$/i)&&(value.length == 6);
                 break;
             case 'prof':
                 profValid = ((value.match(/\d{16}$/i)&&(value.length == 16))||(value == ''));
                 break;
             case 'stud':
-                studValid = (value.match(/\d{8}$/i)||(value == ''));
+                studValid = ((value.match(/\d{8}$/i)&&(value.length == 8))||(value == ''));
                 break;
             default:
                 break;
@@ -118,7 +118,7 @@ class AboutStudent extends Component {
                         autocomplete="off"
                         value={this.state.group}
                         onChange={this.handleInputChange}
-                        placeholder="000-000" />
+                        placeholder="000000" />
                 </FormItem>
                 <FormItem top="Живешь в общежитии">
                     <Select value={this.state.dorm}
@@ -136,7 +136,7 @@ class AboutStudent extends Component {
                         autocomplete="off"
                         value={this.state.stud}
                         onChange={this.handleInputChange}
-                        placeholder="0000-0000" />
+                        placeholder="00000000" />
                 </FormItem>
                 <FormItem top="Номер профбилета(необязательно)" style={{ marginBlockEnd: 70, writingMode: 'horizontal-tb' }}>
                     <Input type="text" name="prof" className={!this.state.profValid ? 'red' : null}
