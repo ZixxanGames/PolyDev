@@ -57,13 +57,13 @@ class AboutStudent extends Component {
         let studValid = this.state.studValid;
         switch (fieldName) {
             case 'group':
-                groupValid = value.match(/\d{3}-\d{3}$/i);
+                groupValid = value.match(/\d{6}$/i);
                 break;
             case 'prof':
                 profValid = ((value.match(/\d{16}$/i)&&(value.length == 16))||(value == ''));
                 break;
             case 'stud':
-                studValid = (value.match(/\d{4}-\d{4}$/i)||(value == ''));
+                studValid = (value.match(/\d{8}$/i)||(value == ''));
                 break;
             default:
                 break;
