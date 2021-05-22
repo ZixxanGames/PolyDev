@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
@@ -17,93 +17,93 @@ import Header from '@vkontakte/vkui/dist/components/Header/Header';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 
 import '../css/Radio.css';
+import { scrollToBottom } from 'react-scroll/modules/mixins/animate-scroll';
+var Scroll = require('react-scroll');
+var scroll = Scroll.animateScroll;
 
-class Acquaintance extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			want: false,
-			wantStudyForm: 'intramural',
-			wantStudyLevel: 'bachelor'
-		}
-	}
+const Acquaintance = ({ id, go, fetchedUser }) => {
 
-	componentDidMount = () => {
+	const [want, setWant] = useState(false)
+	const [wantStudyForm, setForm] = useState('intramural')
+	const [wantStudyLevel, setLevel] = useState('bachelor')
+	const myRef = React.createRef()
+
+	useEffect(() => {
 		localStorage.clear()
 		localStorage.setItem('selectedGroups', []);
-	}
+	});
 
-	handleNextClick = () => (event) => {
-		localStorage.setItem('wantStudyForm', this.state.wantStudyForm);
-		localStorage.setItem('wantStudyLevel', this.state.wantStudyLevel);
-		this.props.go(event);
-	}
-
-
-	render() {
-		return (
-			<Panel id={this.props.id}>
-				<PanelHeader>PolyApp</PanelHeader>
-				{this.props.fetchedUser &&
-					<Group header={<Header mode="primary">Приветствуем тебя</Header>}>
-						<Div className="homepage-subhead">
-							<Subhead weight="semibold">Это мобильное приложение Московского Политеха</Subhead>
-						</Div>
-						<Cell
-							before={this.props.fetchedUser.photo_200 ? <Avatar src={this.props.fetchedUser.photo_200} /> : null}
-							description={this.props.fetchedUser.city && this.props.fetchedUser.city.title ? this.props.fetchedUser.city.title : ''}
-						>
-							{`${this.props.fetchedUser.first_name} ${this.props.fetchedUser.last_name}`}
-						</Cell>
-					</Group>}
-				<Group>
-					<Div>
+	const handleNextClick = () => (event) => {
+		localStorage.setItem('wantStudyForm', wantStudyForm);
+		localStorage.setItem('wantStudyLevel', wantStudyLevel);
+		go(event);
+	};
+	const scrollToSection = () => {
+		setWant(true)
+		scroll.scrollToBottom();
+	};
+	return (
+		<Panel id={id}>
+			<PanelHeader>PolyApp</PanelHeader>
+			{fetchedUser &&
+				<Group header={<Header mode="primary">Приветствуем тебя</Header>}>
+					<Div className="homepage-subhead">
+						<Subhead weight="semibold">Это мобильное приложение Московского Политеха</Subhead>
+					</Div>
+					<Cell
+						before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200} /> : null}
+						description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
+					>
+						{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
+					</Cell>
+				</Group>}
+			<Group>
+				<Div>
+					<FormLayout>
+						<FormItem top="Анкета">
+							<Radio name="radio" onClick={() => setWant(false)} value="already" defaultChecked>Я уже учусь в Московском Политехе</Radio>
+							<Radio name="radio" onClick={() => scrollToSection()} value="newStudent">Я только собираюсь поступить</Radio>
+						</FormItem>
+					</FormLayout>
+				</Div>
+				{want ?
+					<Div style={{ marginBlockEnd: 50 }}>
+						<Caption className="captionCaps" level="1" weight="semibold" caps >
+							Круто! Мы рады, что тебя привлёк наш университет. Расскажи, какая форма обучения тебя интересует?
+					</Caption>
 						<FormLayout>
-							<FormItem top="Анкета">
-								<Radio name="radio" onClick={() => this.setState({ want: false })} value="already" defaultChecked>Я уже учусь в Московском Политехе</Radio>
-								<Radio name="radio" onClick={() => this.setState({ want: true })} value="newStudent">Я только собираюсь поступить</Radio>
+							<FormItem top="Форма обуения">
+								<Radio name="radio" value="intramural" onClick={() => setForm('intramural')} defaultChecked>Очная</Radio>
+								<Radio name="radio" value="extramural" onClick={() => setForm('extramural')}>Заочная</Radio>
 							</FormItem>
 						</FormLayout>
-					</Div>
-					{this.state.want ?
-						<Div style={{ marginBlockEnd: 50 }}>
-							<Caption className="captionCaps" level="1" weight="semibold" caps >
-								Круто! Мы рады, что тебя привлёк наш университет. Расскажи, какая форма обучения тебя интересует?
-					</Caption>
-							<FormLayout>
-								<FormItem top="Форма обуения">
-									<Radio name="radio" value="intramural" onClick={() => this.setState({ wantStudyForm: 'intramural' })} defaultChecked>Очная</Radio>
-									<Radio name="radio" value="extramural" onClick={() => this.setState({ wantStudyForm: 'extramural' })}>Заочная</Radio>
+						<FormLayout>
+							{wantStudyForm == 'intramural' ?
+								<FormItem top="Ступень образования">
+									<Radio name="radio" value="bachelor" onClick={() => setLevel('bachelor')} defaultChecked>Бакалавриат</Radio>
+									<Radio name="radio" value="specialty" onClick={() => setLevel('specialty')} >Специалитет</Radio>
+									<Radio name="radio" value="magistracy" onClick={() => setLevel('magistracy')} >Магистратура</Radio>
 								</FormItem>
-							</FormLayout>
-							<FormLayout>
-								{this.state.wantStudyForm == 'intramural' ?
-									<FormItem top="Ступень образования">
-										<Radio name="radio" value="bachelor" onClick={() => this.setState({ wantStudyLevel: 'bachelor' })} defaultChecked>Бакалавриат</Radio>
-										<Radio name="radio" value="specialty" onClick={() => this.setState({ wantStudyLevel: 'specialty' })} >Специалитет</Radio>
-										<Radio name="radio" value="magistracy" onClick={() => this.setState({ wantStudyLevel: 'magistracy' })} >Магистратура</Radio>
-									</FormItem>
-									:
-									<FormItem top="Ступень образования">
-										<Radio name="radio" value="bachelor" onClick={() => this.setState({ wantStudyLevel: 'bachelor' })} defaultChecked>Бакалавриат</Radio>
-									</FormItem>
-								}
+								:
+								<FormItem className="myDiv" top="Ступень образования">
+									<Radio name="radio" value="bachelor" onClick={() => setLevel('bachelor')} defaultChecked>Бакалавриат</Radio>
+								</FormItem>
+							}
 
-							</FormLayout>
-						</Div>
-						: null
-					}
-					<FixedLayout filled vertical="bottom">
-						<Div>
-							<Button stretched size="l" mode="primary" onClick={this.handleNextClick(event)} data-to={this.state.want ? 'pick-directions' : 'student-form-filling'} >
-								Далее
+						</FormLayout>
+					</Div>
+					: null
+				}
+				<FixedLayout filled vertical="bottom">
+					<Div>
+						<Button stretched size="l" mode="primary" onClick={() => handleNextClick(event)} data-to={want ? 'pick-directions' : 'student-form-filling'} >
+							Далее
 							</Button>
-						</Div>
-					</FixedLayout>
-				</Group>
-			</Panel>
-		)
-	}
+					</Div>
+				</FixedLayout>
+			</Group>
+		</Panel>
+	);
 }
 
 Acquaintance.propTypes = {
