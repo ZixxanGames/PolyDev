@@ -26,17 +26,15 @@ const Acquaintance = ({ id, go, fetchedUser }) => {
 	const [want, setWant] = useState(false)
 	const [wantStudyForm, setForm] = useState('intramural')
 	const [wantStudyLevel, setLevel] = useState('bachelor')
-	const myRef = React.createRef()
 
 	useEffect(() => {
-		localStorage.clear()
 		localStorage.setItem('selectedGroups', []);
 	});
 
-	const handleNextClick = () => (event) => {
+	const handleNextClick = (event) => {
 		localStorage.setItem('wantStudyForm', wantStudyForm);
 		localStorage.setItem('wantStudyLevel', wantStudyLevel);
-		go(event);
+		go(event)
 	};
 	const scrollToSection = () => {
 		setWant(true)
@@ -96,7 +94,7 @@ const Acquaintance = ({ id, go, fetchedUser }) => {
 				}
 				<FixedLayout filled vertical="bottom">
 					<Div>
-						<Button stretched size="l" mode="primary" onClick={() => handleNextClick(event)} data-to={want ? 'pick-directions' : 'student-form-filling'} >
+						<Button stretched size="l" mode="primary" onClick={(event)=>handleNextClick(event)} data-to={want ? 'pick-directions' : 'student-form-filling'} >
 							Далее
 							</Button>
 					</Div>
