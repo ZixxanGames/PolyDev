@@ -93,10 +93,6 @@
   }
 }
 
-.vkuiCheckbox__container{
-  max-width: 250px !important;
-}
-
 .vkuiCheckbox {
   margin-left: 0 !important;
 }
