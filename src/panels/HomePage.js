@@ -29,6 +29,7 @@ class HomePage extends Component {
       dorm: '',
       year: '',
       specialty: '',
+      dormnum: '',
       changed: false
     }
   }
@@ -40,7 +41,8 @@ class HomePage extends Component {
     const dorm = localStorage.getItem('dorm');
     const year = localStorage.getItem('year');
     const specialty = localStorage.getItem('specialty');
-    this.setState({ stud, group, year, dorm, prof, specialty });
+    const dormnum = localStorage.getItem('dormnum');
+    this.setState({ stud, group, year, dorm, prof, specialty, dormnum });
   }
   render() {
     return (
@@ -60,6 +62,7 @@ class HomePage extends Component {
           <Header mode="primary">Обо мне</Header>
           <Header mode="secondary" aside={<Text>{this.state.group}</Text>}>Группа:</Header>
           <Header mode="secondary" aside={<Text>{this.state.year}</Text>}>Курс:</Header>
+          {this.state.dorm == 'Yes' ? <Header mode="secondary" aside={<Text>{this.state.dormnum}</Text>}>Общежитие №:</Header> : null}
           {this.state.stud != '' ? <Header mode="secondary" aside={<Text>{this.state.stud}</Text>}>Студенческий:</Header> : null}
           {this.state.prof != '' ? <Header mode="secondary" aside={<Text>{this.state.prof}</Text>}>Профбилет:</Header> : null}
         </Group>
