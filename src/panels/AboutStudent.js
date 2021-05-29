@@ -11,6 +11,8 @@ import CustomSelectOption from '@vkontakte/vkui/dist/components/CustomSelectOpti
 import FixedLayout from '@vkontakte/vkui/dist/components/FixedLayout/FixedLayout';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import { PanelHeaderBack } from '@vkontakte/vkui';
+import $ from 'jquery';
+import 'jquery-mask-plugin/dist/jquery.mask.min.js';
 
 import '../css/AboutStudents.css'
 
@@ -34,6 +36,8 @@ class AboutStudent extends Component {
     }
     componentDidMount = () => {
         localStorage.clear();
+        $('input[name="group"]').mask('999-999');
+        $('input[name="stud"]').mask('9990-9999');
     }
     handleInputChange(event) {
         const target = event.target;
@@ -45,6 +49,7 @@ class AboutStudent extends Component {
         },
             () => { this.validateField(name, value) }
         );
+
         // if (((this.state.year !== '') || (name == 'year')) && ((this.state.specialty !== '') || (name == 'specialty')) && ((this.state.group !== '') || (name == 'group')) && ((this.state.dorm !== '') || (name == 'dorm'))) {
         //     this.setState({
         //         changed: true
@@ -57,13 +62,13 @@ class AboutStudent extends Component {
         let studValid = this.state.studValid;
         switch (fieldName) {
             case 'group':
-                groupValid = value.match(/\d{6}$/i)&&(value.length == 6);
+                groupValid = (value.length == 7);
                 break;
             case 'prof':
-                profValid = ((value.match(/\d{16}$/i)&&(value.length == 16))||(value == ''));
+                profValid = (value.length == 16)||(value == '');
                 break;
             case 'stud':
-                studValid = ((value.match(/\d{8}$/i)&&(value.length == 8))||(value == ''));
+                studValid = (value.length == 9)||(value == '');
                 break;
             default:
                 break;
@@ -136,7 +141,7 @@ class AboutStudent extends Component {
                         autocomplete="off"
                         value={this.state.stud}
                         onChange={this.handleInputChange}
-                        placeholder="00000000" />
+                        placeholder="0000-0000" />
                 </FormItem>
                 <FormItem top="Номер профбилета(необязательно)" style={{ marginBlockEnd: 70, writingMode: 'horizontal-tb' }}>
                     <Input type="text" name="prof" className={!this.state.profValid ? 'red' : null}

@@ -17,6 +17,7 @@ import HomePage from './panels/HomePage';
 import Questions from './panels/Questions';
 import QuestionsList from './panels/QustionList';
 import Instruction from './panels/Instruction';
+import Dorms from './panels/Dorms'
 
 const App = () => {
 	const [activePanel, setActivePanel] = localStorage.getItem('group') == null ? useState('acquaintance') : useState('home');
@@ -63,6 +64,7 @@ const App = () => {
 					<PickDirections id='pick-directions' go={go} />
 					<AboutDirection id='about-direction' go={go} />
 					<ChoosedDirectionsInfo id='choosed-directions-info' go={go}/>
+					<Dorms id='dorms' go={go}/>
 					{/* Ветка два */}
 					<AboutStudent id="student-form-filling" go={go} />
 					<HomePage id='home' fetchedUser={fetchedUser} go={go} />

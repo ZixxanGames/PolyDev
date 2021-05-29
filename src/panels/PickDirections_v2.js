@@ -57,7 +57,16 @@ class PickDirections_v2 extends Component {
 					counter = counter + 1;
 				}
 			}
+			let t = localStorage.getItem('selectedGroups');
+			console.log(t);
+			for (let i = 0; i< t.length; i++) {
+				if(localStorage.getItem('selectedGroups')[i] === 't') {
+					this.state.counter--
+					console.log(this.state.counter)
+				}
+			}
 		}
+		
 	}
 
 	handleInfoClick = (value) => (event) => {
@@ -97,8 +106,12 @@ class PickDirections_v2 extends Component {
 		</Title>
 				<Div style={{ marginLeft: 'auto', }}>
 					<List>
-						<Cell indicator={<Counter>{this.state.counter}</Counter>}>Доступно для выбора
-			</Cell>
+						{
+							this.componentDidMount?<Cell indicator={<Counter>{this.state.counter}</Counter>}>Доступно для выбора </Cell>:null
+						}
+						
+						
+
 					</List>
 				</Div>
 				<Div style={{ marginLeft: 16, marginRight: 16, marginTop: 16, borderRadius: 7, textAlign: 'center', fontSize: '1.2rem', width: '40%', margin: '0 auto', maxWidth: '220px' }}>
