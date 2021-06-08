@@ -240,6 +240,12 @@ class PickDirections_v2 extends Component {
 							</FormItem>
 							<Icon20Info onClick={this.handleInfoClick(`newDirections.Очная.Магистаратура[3]['Управление в технических системах - 27.04.04'][0]`)} data-to="about-direction" />
 						</Div>
+						<Div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0' }}>
+							<FormItem style={{padding:0}}>
+								<Checkbox onChange={() => this.handleCheckboxChange(event)} value="newDirections.Очная.Магистаратура[3]['Управление в технических системах - 27.04.04'][1]"> {newDirections.Очная.Магистаратура[3]['Управление в технических системах - 27.04.04'][1]['Название направления']}</Checkbox>
+							</FormItem>
+							<Icon20Info onClick={this.handleInfoClick(`newDirections.Очная.Магистаратура[3]['Управление в технических системах - 27.04.04'][1]`)} data-to="about-direction" />
+						</Div>
 					</Div>
 					: null
 
