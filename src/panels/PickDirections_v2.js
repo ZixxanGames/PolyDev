@@ -15,7 +15,7 @@ import { Icon20Info } from '@vkontakte/icons';
 import '../css/PickDirections_v2.css';
 import { PanelHeaderBack } from '@vkontakte/vkui';
 
-let newDirections = require('../json/new_directions.json');
+import newDirections from '../json/new_directions.json';
 
 class PickDirections_v2 extends Component {
 	constructor(props) {

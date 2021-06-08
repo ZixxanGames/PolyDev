@@ -29,6 +29,9 @@ class Instruction extends Component {
             category: ''
         }
     }
+    createMarkup = (text) => {
+        return { __html: text };
+      }
     render() {
         return (
             <Panel id={this.props.id}>
@@ -42,7 +45,7 @@ class Instruction extends Component {
                 </Div>
                 <Group className="group-about" style={{marginBottom:130}}>
                     <Header mode="secondary">Инструкция</Header>
-                    <Div><Text>{this.props.question.instruction}</Text></Div>
+                    <Div><Text dangerouslySetInnerHTML={this.createMarkup(this.props.question.instruction)}></Text></Div>
                     {this.props.question.links.length !== 0 ? <Header mode="secondary">Полезные ссылки</Header> : null}
                         {this.props.question.links !== 0 &&
                             this.props.question.links.map((link, index) => {

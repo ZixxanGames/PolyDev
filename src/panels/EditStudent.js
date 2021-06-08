@@ -17,7 +17,7 @@ import 'jquery-mask-plugin/dist/jquery.mask.min.js';
 import '../css/AboutStudents.css'
 
 
-class AboutStudent extends Component {
+class EditStudent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,7 +36,14 @@ class AboutStudent extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
     }
     componentDidMount = () => {
-        localStorage.clear();
+        const group = localStorage.getItem('group');
+        const stud = localStorage.getItem('stud');
+        const prof = localStorage.getItem('prof');
+        const dorm = localStorage.getItem('dorm');
+        const year = localStorage.getItem('year');
+        const specialty = localStorage.getItem('specialty');
+        const dormnum = localStorage.getItem('dormnum');
+        this.setState({ stud, group, year, dorm, prof, specialty, dormnum });
         $('input[name="group"]').mask('999-999');
         $('input[name="stud"]').mask('9990-9999');
         $('input[name="prof"]').mask('9999999999999999');
@@ -87,7 +94,7 @@ class AboutStudent extends Component {
                 (this.state.specialty !== '') && (this.state.dorm !== '') && (((this.state.dormnum !== '') && (this.state.dorm == 'Yes')) || (this.state.dorm == 'No'))
         });
     };
-    toStorage = () => {
+    toStorage = (event) => {
         const { year, specialty, group, dorm, stud, prof, dormnum } = this.state;
         localStorage.setItem('year', year);
         localStorage.setItem('specialty', specialty);
@@ -96,11 +103,12 @@ class AboutStudent extends Component {
         localStorage.setItem('stud', stud);
         localStorage.setItem('prof', prof);
         localStorage.setItem('dormnum', dormnum);
+        this.props.setActivePanel(event.currentTarget.dataset.to)
     };
     render() {
         return (
             <Panel id={this.props.id}>
-                <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='acquaintance' />}>PolyApp</PanelHeader>
+                <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='home' />}>PolyApp</PanelHeader>
                 <FormItem top="Курс">
                     <Select name="year" value={this.state.year}
                         onChange={this.handleInputChange}
@@ -170,7 +178,7 @@ class AboutStudent extends Component {
                 <FixedLayout filled vertical="bottom">
                     <Div>
                         <Button type="submit" stretched size="l" mode="primary" disabled={!this.state.changed}
-                            onClick={this.toStorage(), this.props.go} data-to="home">Продолжить</Button>
+                            onClick={this.toStorage} data-to="home">Продолжить</Button>
                     </Div>
                 </FixedLayout>
             </Panel>
@@ -178,4 +186,4 @@ class AboutStudent extends Component {
     }
 }
 
-export default AboutStudent;
+export default EditStudent;

@@ -19,6 +19,7 @@ import QuestionsList from './panels/QustionList';
 import Instruction from './panels/Instruction';
 import CalendarPanel from './panels/Calendar';
 import Dorms from './panels/Dorms';
+import EditStudent from './panels/EditStudent';
 
 const App = () => {
 	const [activePanel, setActivePanel] = localStorage.getItem('group') == null ? useState('acquaintance') : useState('home');
@@ -68,6 +69,7 @@ const App = () => {
 					<Dorms id='dorms' go={go}/>
 					{/* Ветка два */}
 					<AboutStudent id="student-form-filling" go={go} />
+					<EditStudent go={go} id="edit" setActivePanel={setActivePanel} />
 					<HomePage id='home' fetchedUser={fetchedUser} go={go} />
 					<Questions updateData={updateData} id='questions' go={go} />
 					<QuestionsList updateQuestion={updateQuestion} category={category} id='questions-list' go={go} />

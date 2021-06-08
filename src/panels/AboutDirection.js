@@ -25,6 +25,9 @@ class AboutDirection extends Component {
         const interestedDirection = eval(localStorage.getItem('interestedDirection'));
         this.setState({ interestedDirection });
     }
+    createMarkup = (text) => {
+        return { __html: text };
+      }
     render() {
         return (
             <Panel id={this.props.id}>
@@ -41,7 +44,7 @@ class AboutDirection extends Component {
                     <Cell indicator={this.state.interestedDirection['Бюджетных мест']}>Бюджетных мест</Cell>
                     <Cell indicator={this.state.interestedDirection['Платных мест']}>Платных мест</Cell>
                 </List>
-                <Text weight="medium" style={{ marginBottom: 16, padding: 16 }}>{this.state.interestedDirection['Описание']}</Text>
+                <Text weight="medium" style={{ marginBottom: 16, padding: 16 }} dangerouslySetInnerHTML={this.createMarkup(this.state.interestedDirection['Описание'])}></Text>
                 <FixedLayout filled vertical="bottom">
                     <Div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                         <Button stretched size="l" mode="primary"

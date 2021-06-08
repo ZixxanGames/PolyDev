@@ -10,11 +10,12 @@ import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Gradient from '@vkontakte/vkui/dist/components/Gradient/Gradient';
 import Text from '@vkontakte/vkui/dist/components/Typography/Text/Text';
 import Title from '@vkontakte/vkui/dist/components/Typography/Title/Title';
-import { Tabbar, TabbarItem } from '@vkontakte/vkui';
+import { Button, Tabbar, TabbarItem } from '@vkontakte/vkui';
 import { Icon28UserCircleOutline } from '@vkontakte/icons';
 import { Icon28CalendarOutline } from '@vkontakte/icons';
 import { Icon28InfoCircleOutline } from '@vkontakte/icons';
-
+import { Icon20Write } from '@vkontakte/icons';
+import { Icon16Clear } from '@vkontakte/icons';
 import '../css/Home.css'
 
 
@@ -44,6 +45,9 @@ class HomePage extends Component {
     const dormnum = localStorage.getItem('dormnum');
     this.setState({ stud, group, year, dorm, prof, specialty, dormnum });
   }
+  clearAll = () =>{
+    localStorage.clear();
+  }
   render() {
     return (
       <Panel id={this.props.id}>
@@ -52,14 +56,16 @@ class HomePage extends Component {
           {this.props.fetchedUser &&
             <Gradient className="avatar">
               <Avatar src={this.props.fetchedUser.photo_200} size={96} />
-              <Title style={{ marginBottom: 4, marginTop: 20 }} level="3" weight="medium">{`${this.props.fetchedUser.first_name} ${this.props.fetchedUser.last_name}`}</Title>
+              <Header className='delete' mode="primary" aside={
+                <Icon16Clear onClick={this.clearAll, this.props.go} data-to='acquaintance'/>
+              } >{`${this.props.fetchedUser.first_name} ${this.props.fetchedUser.last_name}`}</Header>
               <Text style={{ color: 'var(--text_secondary)' }}>{this.props.fetchedUser.city && this.props.fetchedUser.city.title ? this.props.fetchedUser.city.title : ''}</Text>
               <Text style={{textAlign:'center', marginTop: 10}}>{this.state.specialty}</Text>
             </Gradient>
           }
         </Div>
         <Group className="group-about">
-          <Header mode="primary">Обо мне</Header>
+          <Header mode="primary" aside={<Icon20Write onClick={this.props.go} data-to='edit'/>}>Обо мне</Header>
           <Header mode="secondary" aside={<Text>{this.state.group}</Text>}>Группа:</Header>
           <Header mode="secondary" aside={<Text>{this.state.year}</Text>}>Курс:</Header>
           {this.state.dorm == 'Yes' ? <Header mode="secondary" aside={<Text>{this.state.dormnum}</Text>}>Общежитие №:</Header> : null}
