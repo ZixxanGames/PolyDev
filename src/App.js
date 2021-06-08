@@ -27,6 +27,7 @@ const App = () => {
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 	const [category, setCategory] = useState('');
 	const [question, setQuestion] = useState(null);
+	const[counter,setCounter]=useState(false);
 
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data } }) => {
@@ -63,7 +64,7 @@ const App = () => {
 					<Acquaintance fetchedUser={fetchedUser} id='acquaintance' go={go} />
 					{/* <StudyForm id='study-form' go={go} />
 					<Degree id='degree' go={go}/> */}
-					<PickDirections id='pick-directions' go={go} />
+					<PickDirections counter={counter} setCounter={setCounter} id='pick-directions' go={go} />
 					<AboutDirection id='about-direction' go={go} />
 					<ChoosedDirectionsInfo id='choosed-directions-info' go={go}/>
 					<Dorms id='dorms' go={go}/>

@@ -23,7 +23,6 @@ class PickDirections_v2 extends Component {
 		this.state = {
 			selectedGroups: [],
 			counter: 5,
-			valid: false,
 			choosedGroupTempArray: [],
 		}
 	}
@@ -38,13 +37,9 @@ class PickDirections_v2 extends Component {
 
 
 		if ((this.state.counter >= 0) && (this.state.counter < 5)) {
-			this.setState({
-				valid: true
-			});
+			this.props.setCounter(true)
 		} else {
-			this.setState({
-				valid: false
-			});
+			this.props.setCounter(false)
 		}
 	}
 	componentDidMount = () => {
@@ -264,7 +259,7 @@ class PickDirections_v2 extends Component {
 				<FixedLayout filled vertical="bottom">
 					<Div>
 						<Button stretched size="l" mode="primary"
-							disabled={!this.state.valid} onClick={this.goNextPageHandler(event)} data-to="choosed-directions-info">Продолжить</Button>
+							disabled={!this.props.counter} onClick={this.goNextPageHandler(event)} data-to="choosed-directions-info">Продолжить</Button>
 					</Div>
 				</FixedLayout>
 			</Panel>
