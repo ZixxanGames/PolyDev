@@ -47,8 +47,6 @@ const Dorms = ({ id, go }) => {
         <Text style={{ margin: '0 16px', lineHeight: '1.4rem' }}>
           4. Студенты платной формы обучения
       </Text>
-      <Text style={{ margin: '0 16px', lineHeight: '1.4rem' }} dangerouslySetInnerHTML={createMarkup('ЖОПА <br> ЖОПА <br> ЖОПА <br> ЖОПА <br> ЖОПА <br> ЖОПА ')}>
-      </Text>
       </Group>
       <Group description="Наши общежития" style={{ marginTop: 8 }}>
 
