@@ -65,10 +65,10 @@ class AboutStudent extends Component {
                 groupValid = (value.length == 7);
                 break;
             case 'prof':
-                profValid = ((value.match(/\d{16}$/i)&&(value.length == 16))||(value == ''));
+                profValid = ((value.match(/\d{16}$/i) && (value.length == 16)) || (value == ''));
                 break;
             case 'stud':
-                studValid = (value.length == 9)||(value == '');
+                studValid = (value.length == 9) || (value == '');
                 break;
             default:
                 break;
@@ -82,8 +82,8 @@ class AboutStudent extends Component {
     validateForm = () => {
         this.setState({
             changed: this.state.groupValid &&
-                this.state.profValid && this.state.studValid && (this.state.year !== '') && 
-                (this.state.specialty !== '')&&(this.state.dorm !== '')&&(((this.state.dormnum !== '')&&(this.state.dorm == 'Yes'))||(this.state.dorm == 'No'))
+                this.state.profValid && this.state.studValid && (this.state.year !== '') &&
+                (this.state.specialty !== '') && (this.state.dorm !== '') && (((this.state.dormnum !== '') && (this.state.dorm == 'Yes')) || (this.state.dorm == 'No'))
         });
     };
     toStorage = () => {
@@ -121,11 +121,11 @@ class AboutStudent extends Component {
                     />
                 </FormItem>
                 <FormItem top="Группа">
-                    <Input type="text" name="group" className={!this.state.groupValid&&this.state.group!='' ? 'red' : null}
+                    <Input type="text" inputMode={'numeric'} name="group" className={!this.state.groupValid && this.state.group != '' ? 'red' : null}
                         autocomplete="off"
                         value={this.state.group}
                         onChange={this.handleInputChange}
-                        placeholder="000-000" />
+                        placeholder="000000" />
                 </FormItem>
                 <FormItem top="Живешь в общежитии">
                     <Select value={this.state.dorm}
@@ -138,29 +138,29 @@ class AboutStudent extends Component {
                         )}
                     />
                 </FormItem>
-                {(this.state.dorm != '')&&(this.state.dorm != 'No') ?
-                <FormItem top="Номер общежития">
-                    <Select value={this.state.dormnum}
-                        onChange={this.handleInputChange}
-                        name='dormnum'
-                        placeholder="Не выбрано"
-                        options={[{ value: '1', label: 'Общежитие номер 1' }, { value: '2', label: 'Общежитие номер 2' },{ value: '3', label: 'Общежитие номер 3' },{ value: '4', label: 'Общежитие номер 4' },{ value: '5', label: 'Общежитие номер 5' },{ value: '6', label: 'Общежитие номер 6' },{ value: '7', label: 'Общежитие номер 7' },{ value: '8', label: 'Общежитие номер 8' },{ value: '9', label: 'Общежитие номер 9' },{ value: '10', label: 'Общежитие номер 10' }]}
-                        renderOption={({ option, ...restProps }) => (
-                            <CustomSelectOption {...restProps} />
-                        )}
-                    />
-                </FormItem>
-                :null    
+                {(this.state.dorm != '') && (this.state.dorm != 'No') ?
+                    <FormItem top="Номер общежития">
+                        <Select value={this.state.dormnum}
+                            onChange={this.handleInputChange}
+                            name='dormnum'
+                            placeholder="Не выбрано"
+                            options={[{ value: '1', label: 'Общежитие номер 1' }, { value: '2', label: 'Общежитие номер 2' }, { value: '3', label: 'Общежитие номер 3' }, { value: '4', label: 'Общежитие номер 4' }, { value: '5', label: 'Общежитие номер 5' }, { value: '6', label: 'Общежитие номер 6' }, { value: '7', label: 'Общежитие номер 7' }, { value: '8', label: 'Общежитие номер 8' }, { value: '9', label: 'Общежитие номер 9' }, { value: '10', label: 'Общежитие номер 10' }]}
+                            renderOption={({ option, ...restProps }) => (
+                                <CustomSelectOption {...restProps} />
+                            )}
+                        />
+                    </FormItem>
+                    : null
                 }
                 <FormItem top="Номер студенческого(необязательно)">
-                    <Input type="text" name="stud" className={!this.state.studValid ? 'red' : null}
+                    <Input type="text" name="stud" inputMode={'numeric'} className={!this.state.studValid ? 'red' : null}
                         autocomplete="off"
                         value={this.state.stud}
                         onChange={this.handleInputChange}
                         placeholder="0000-0000" />
                 </FormItem>
                 <FormItem top="Номер профбилета(необязательно)" style={{ marginBlockEnd: 70, writingMode: 'horizontal-tb' }}>
-                    <Input type="text" name="prof" className={!this.state.profValid ? 'red' : null}
+                    <Input type="text" inputMode={'numeric'} name="prof" className={!this.state.profValid ? 'red' : null}
                         autocomplete="off"
                         value={this.state.prof}
                         onChange={this.handleInputChange}
