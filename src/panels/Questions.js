@@ -66,7 +66,7 @@ class Questions extends Component {
                     <TabbarItem text="Вопросы" selected>
                         <Icon28InfoCircleOutline/>
                     </TabbarItem>
-                    <TabbarItem text="Календарь" onClick={this.props.go} data-to="acquaintance">
+                    <TabbarItem text="Календарь" onClick={this.props.go} data-to="calendar">
                         <Icon28CalendarOutline />
                     </TabbarItem>
                     <TabbarItem text="Профиль" onClick={this.props.go} data-to="home">

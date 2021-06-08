@@ -13,7 +13,7 @@ import '../css/PickDirections_v2.css';
 import Title from '@vkontakte/vkui/dist/components/Typography/Title/Title';
 import Text from '@vkontakte/vkui/dist/components/Typography/Text/Text';
 
-let newDirections = require('../json/new_directions.json');
+const newDirections = require('../json/new_directions.json');
 
 class ChoosedDirectionsInfo extends Component {
     constructor(props) {
@@ -94,7 +94,7 @@ class ChoosedDirectionsInfo extends Component {
 
                 <FixedLayout filled vertical="bottom">
                     <Div>
-                        <Button stretched size="l" mode="primary" onClick={this.props.go} data-to="pick-directions">Продолжить</Button>
+                        <Button stretched size="l" mode="primary" onClick={this.props.go} data-to="dorms">Общежития</Button>
                     </Div>
                 </FixedLayout>
             </Panel>

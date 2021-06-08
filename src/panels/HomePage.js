@@ -71,7 +71,7 @@ class HomePage extends Component {
             <TabbarItem text="Вопросы" onClick={this.props.go} data-to="questions">
               <Icon28InfoCircleOutline />
             </TabbarItem>
-            <TabbarItem text="Календарь" onClick={this.props.go} data-to="acquaintance">
+            <TabbarItem text="Календарь" onClick={this.props.go} data-to="calendar">
               <Icon28CalendarOutline />
             </TabbarItem>
             <TabbarItem text="Профиль" selected>
