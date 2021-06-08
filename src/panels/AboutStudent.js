@@ -119,7 +119,7 @@ class AboutStudent extends Component {
                     />
                 </FormItem>
                 <FormItem top="Группа">
-                    <Input type="text" name="group" className={!this.state.groupValid&&this.state.group!='' ? 'red' : null}
+                    <Input type="text" inputMode={'numeric'} name="group" className={!this.state.groupValid&&this.state.group!='' ? 'red' : null}
                         autocomplete="off"
                         value={this.state.group}
                         onChange={this.handleInputChange}
@@ -137,14 +137,14 @@ class AboutStudent extends Component {
                     />
                 </FormItem>
                 <FormItem top="Номер студенческого(необязательно)">
-                    <Input type="text" name="stud" className={!this.state.studValid ? 'red' : null}
+                    <Input type="text" name="stud" inputMode={'numeric'} className={!this.state.studValid ? 'red' : null}
                         autocomplete="off"
                         value={this.state.stud}
                         onChange={this.handleInputChange}
                         placeholder="0000-0000" />
                 </FormItem>
                 <FormItem top="Номер профбилета(необязательно)" style={{ marginBlockEnd: 70, writingMode: 'horizontal-tb' }}>
-                    <Input type="text" name="prof" className={!this.state.profValid ? 'red' : null}
+                    <Input type="text" inputMode={'numeric'} name="prof" className={!this.state.profValid ? 'red' : null}
                         autocomplete="off"
                         value={this.state.prof}
                         onChange={this.handleInputChange}

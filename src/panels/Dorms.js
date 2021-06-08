@@ -13,12 +13,17 @@ import Text from '@vkontakte/vkui/dist/components/Typography/Text/Text';
 import Card from '@vkontakte/vkui/dist/components/Card/Card';
 import CardScroll from '@vkontakte/vkui/dist/components/CardScroll/CardScroll';
 import { Icon16New } from '@vkontakte/icons';
+import ReactMarkdown from 'react-markdown';
 
-const dormsInfo = require('../json/dorms.json');
-
+const dormsInfo = require('../json/dorms.json'); 
 import '../css/dorms.css';
 
 const Dorms = ({ id, go }) => {
+  function createMarkup(text) {
+    return {__html: text};
+  }
+  
+  const textmarkdown = '#this is a header\n\nAnd this is a paragraph';
 	return(
 	<Panel id={id}>
 		<PanelHeader left={<PanelHeaderBack onClick={go} data-to='choosed-directions-info' />}>PolyApp</PanelHeader>
@@ -43,8 +48,8 @@ const Dorms = ({ id, go }) => {
         4. Студенты платной формы обучения 
       </Text>
     </Group>
-
     <Group description="Наши общежития" style={{marginTop:8}}>
+    
       <CardScroll size="m">
           {console.log(dormsInfo['Общежития'][0].Фотографии)}
           {
@@ -56,7 +61,7 @@ const Dorms = ({ id, go }) => {
                 <div style={{display: 'flex', justifyContent: '', alignItems: 'center', width: '100%', flexDirection:'column'}}>
                   <Text style={{textAlign:'left', width: '100%'}}>Общежитие {dorm.Номер}</Text>
                   <Text style={{textAlign:'left', width: '100%', opacity:.5, fontSize: '.85rem'}}> {dorm['Адрес']} </Text>
-                  <Cell ClassName={'dormsPageCell'} style={{textAlign:'left', width: 'calc(100% + 32px)', opacity:.5, fontSize: '42px!important', paddingTop: '0!important'}} before={<Icon16New fill={dorm.Цвет} style={{padding:0}}/> }>{dorm['Метро']}</Cell>
+                  <Cell ClassName={'dormsPageCell'} className="metro" style={{textAlign:'left', width: 'calc(100% + 32px)', opacity:5, paddingTop: '0!important'}} before={<Icon16New fill={dorm.Цвет} style={{padding:0}}/> }>{dorm['Метро']}</Cell>
                 </div>
               </Card>
               )
