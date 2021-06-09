@@ -53,6 +53,7 @@ class DormPage extends Component {
             </CardScroll>
             <Div style={{margin:'0 16px 8px 16px', lineHeight:'1.4rem'}}>
                 <Text dangerouslySetInnerHTML={this.createMarkup(dorms.Общежития[this.props.dorm].Описание)} />
+                <Link href={'tel:' + dorms.Общежития[this.props.dorm]['Телефон']}>{dorms.Общежития[this.props.dorm]['Телефон коменданта']}</Link>
                </Div>
                <FixedLayout filled vertical="bottom">
                 <Div style={{display: "flex", justifyContent: "space-between"}}>
