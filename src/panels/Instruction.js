@@ -35,7 +35,7 @@ class Instruction extends Component {
     render() {
         return (
             <Panel id={this.props.id}>
-                <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='questions-list' />}>PolyApp</PanelHeader>
+                <PanelHeader left={<PanelHeaderBack onClick={this.props.back} />}>PolyApp</PanelHeader>
                 <Div>
                     {this.props.category == 'dorms' ? <Icon36HomeOutline className="instruction__icon" /> : null}
                     {this.props.category == 'study' ? <Icon28BookOutline className="instruction__icon" /> : null}

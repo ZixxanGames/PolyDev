@@ -1,3 +1,4 @@
+  
 import React, { Component } from 'react';
 
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
@@ -23,6 +24,7 @@ class PickDirections_v2 extends Component {
 		this.state = {
 			selectedGroups: [],
 			counter: 5,
+			valid: false,
 			choosedGroupTempArray: [],
 		}
 	}
@@ -37,9 +39,13 @@ class PickDirections_v2 extends Component {
 
 
 		if ((this.state.counter >= 0) && (this.state.counter < 5)) {
-			this.props.setCounter(true)
+			this.setState({
+				valid: true
+			});
 		} else {
-			this.props.setCounter(false)
+			this.setState({
+				valid: false
+			});
 		}
 	}
 	componentDidMount = () => {
@@ -235,12 +241,6 @@ class PickDirections_v2 extends Component {
 							</FormItem>
 							<Icon20Info onClick={this.handleInfoClick(`newDirections.Очная.Магистаратура[3]['Управление в технических системах - 27.04.04'][0]`)} data-to="about-direction" />
 						</Div>
-						<Div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0' }}>
-							<FormItem style={{padding:0, maxWidth: 250}}>
-								<Checkbox onChange={() => this.handleCheckboxChange(event)} value="newDirections.Очная.Магистаратура[3]['Управление в технических системах - 27.04.04'][1]"> {newDirections.Очная.Магистаратура[3]['Управление в технических системах - 27.04.04'][1]['Название направления']}</Checkbox>
-							</FormItem>
-							<Icon20Info onClick={this.handleInfoClick(`newDirections.Очная.Магистаратура[3]['Управление в технических системах - 27.04.04'][1]`)} data-to="about-direction" />
-						</Div>
 					</Div>
 					: null
 
@@ -265,7 +265,7 @@ class PickDirections_v2 extends Component {
 				<FixedLayout filled vertical="bottom">
 					<Div>
 						<Button stretched size="l" mode="primary"
-							disabled={!this.props.counter} onClick={this.goNextPageHandler(event)} data-to="choosed-directions-info">Продолжить</Button>
+							disabled={!this.state.valid} onClick={this.goNextPageHandler(event)} data-to="choosed-directions-info">Продолжить</Button>
 					</Div>
 				</FixedLayout>
 			</Panel>

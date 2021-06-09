@@ -34,7 +34,7 @@ class Dorms extends Component {
 
     return(
       <Panel id={this.props.id}>
-        <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='choosed-directions-info' />}>PolyApp</PanelHeader>
+        <PanelHeader left={<PanelHeaderBack onClick={this.props.back} />}>PolyApp</PanelHeader>
         <Group>
           <Title level="2" weight="regular" style={{ marginBottom: 8, textTransform:'uppercase', textAlign:'center', opacity:.5, fontSize:'.85rem' }}>Общежития</Title>
           <Text style={{margin:'0 16px 8px 16px', lineHeight:'1.4rem'}}>

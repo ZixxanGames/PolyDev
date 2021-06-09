@@ -32,7 +32,7 @@ class AboutDirection extends Component {
     render() {
         return (
             <Panel id={this.props.id}>
-                <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='pick-directions' />}>PolyApp</PanelHeader>
+                <PanelHeader left={<PanelHeaderBack onClick={this.props.back} />}>PolyApp</PanelHeader>
                 <Title style={{ marginLeft: 16, marginRight: 16, marginTop: 16, padding: 16, background: 'var(--content_tint_background)', borderRadius: 7, fontSize: '1.2rem', textAlign: 'center' }}>
                     {this.state.interestedDirection['Название направления']}
                 </Title>

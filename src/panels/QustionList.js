@@ -19,7 +19,7 @@ class QuestionsList extends Component {
     render() {
         return (
             <Panel id={this.props.id}>
-                <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='questions' />}>PolyApp</PanelHeader>
+                <PanelHeader left={<PanelHeaderBack onClick={this.props.back}/>}>PolyApp</PanelHeader>
                 <Group>
                     <RenderQuestions go={this.props.go} updateQuestion={this.props.updateQuestion} category={this.props.category}/>
                 </Group>

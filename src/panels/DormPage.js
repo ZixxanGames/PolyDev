@@ -35,7 +35,7 @@ class DormPage extends Component {
     render() {
         return (
             <Panel id={this.props.id}>
-                <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='dorms' />}>PolyApp</PanelHeader>
+                <PanelHeader left={<PanelHeaderBack onClick={this.props.back} />}>PolyApp</PanelHeader>
                 <Title level="2" weight="regular" style={{ marginBottom: 8, textTransform:'uppercase', textAlign:'center', opacity:.5, fontSize:'.85rem' }}>Общежитие № {this.props.dorm +1} </Title>
                 <CardScroll size="m">
 

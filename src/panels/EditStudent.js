@@ -108,7 +108,7 @@ class EditStudent extends Component {
     render() {
         return (
             <Panel id={this.props.id}>
-                <PanelHeader left={<PanelHeaderBack onClick={this.props.go} data-to='home' />}>PolyApp</PanelHeader>
+                <PanelHeader left={<PanelHeaderBack onClick={this.props.back} />}>PolyApp</PanelHeader>
                 <FormItem top="Курс">
                     <Select name="year" value={this.state.year}
                         onChange={this.handleInputChange}

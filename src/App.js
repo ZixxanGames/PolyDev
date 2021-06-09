@@ -28,10 +28,23 @@ const App = () => {
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 	const [category, setCategory] = useState('');
 	const [question, setQuestion] = useState(null);
-	const [counter,setCounter] = useState(false);
 	const [dorm, setdorm] = useState(0);
 
+	function menu(e) {
+		console.log('menu: ' + e.state.panel);
+		if (e.state) {
+			setActivePanel(e.state.panel);
+		} else {
+			console.log('state is empty');
+			setActivePanel(routes.home);
+		}
+	}
+	function back() {window.history.back();}
+
 	useEffect(() => {
+		window.addEventListener('popstate', e => e.preventDefault() & menu(e));
+		window.history.pushState({panel: 'acquaintance'}, 'acquaintance');
+
 		bridge.subscribe(({ detail: { type, data } }) => {
 			if (type === 'VKWebAppUpdateConfig') {
 				const schemeAttribute = document.createAttribute('scheme');
@@ -49,6 +62,7 @@ const App = () => {
 
 	const go = e => {
 		setActivePanel(e.currentTarget.dataset.to);
+		window.history.pushState({panel: e.currentTarget.dataset.to}, `${e.currentTarget.dataset.to}`);
 	};
 
 	const updateData = (value) => {
@@ -66,18 +80,18 @@ const App = () => {
 					<Acquaintance fetchedUser={fetchedUser} id='acquaintance' go={go} />
 					{/* <StudyForm id='study-form' go={go} />
 					<Degree id='degree' go={go}/> */}
-					<PickDirections counter={counter} setCounter={setCounter} id='pick-directions' go={go} />
-					<AboutDirection id='about-direction' go={go} />
-					<ChoosedDirectionsInfo id='choosed-directions-info' go={go}/>
-					<DormPage dorm={dorm} setdorm={setdorm} id='dorm-page' go={go}/>
-					<Dorms setdorm={setdorm} id='dorms' go={go} choosedDorm={0}/>
+					<PickDirections back={back} id='pick-directions' go={go} />
+					<AboutDirection back={back} id='about-direction' go={go} />
+					<ChoosedDirectionsInfo back={back} id='choosed-directions-info' go={go}/>
+					<DormPage back={back} dorm={dorm} setdorm={setdorm} id='dorm-page' go={go}/>
+					<Dorms back={back} setdorm={setdorm} id='dorms' go={go} choosedDorm={0}/>
 					{/* Ветка два */}
-					<AboutStudent id="student-form-filling" go={go} />
-					<EditStudent go={go} id="edit" setActivePanel={setActivePanel} />
+					<AboutStudent back={back} id="student-form-filling" go={go} />
+					<EditStudent back={back} go={go} id="edit" setActivePanel={setActivePanel} />
 					<HomePage id='home' fetchedUser={fetchedUser} go={go} />
 					<Questions updateData={updateData} id='questions' go={go} />
-					<QuestionsList updateQuestion={updateQuestion} category={category} id='questions-list' go={go} />
-					<Instruction question={question} category={category} id='instruction' go={go} />
+					<QuestionsList back={back} updateQuestion={updateQuestion} category={category} id='questions-list' go={go} />
+					<Instruction back={back} question={question} category={category} id='instruction' go={go} />
 					<CalendarPanel fetchedUser={fetchedUser} id='calendar' go={go}/>
 				</View>
 			</AppRoot>
