@@ -19,6 +19,7 @@ import QuestionsList from './panels/QustionList';
 import Instruction from './panels/Instruction';
 import CalendarPanel from './panels/Calendar';
 import Dorms from './panels/Dorms';
+import DormPage from './panels/DormPage';
 import EditStudent from './panels/EditStudent';
 
 const App = () => {
@@ -27,7 +28,8 @@ const App = () => {
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 	const [category, setCategory] = useState('');
 	const [question, setQuestion] = useState(null);
-	const[counter,setCounter]=useState(false);
+	const [counter,setCounter] = useState(false);
+	const [dorm, setdorm] = useState(0);
 
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data } }) => {
@@ -67,7 +69,8 @@ const App = () => {
 					<PickDirections counter={counter} setCounter={setCounter} id='pick-directions' go={go} />
 					<AboutDirection id='about-direction' go={go} />
 					<ChoosedDirectionsInfo id='choosed-directions-info' go={go}/>
-					<Dorms id='dorms' go={go}/>
+					<DormPage dorm={dorm} setdorm={setdorm} id='dorm-page' go={go}/>
+					<Dorms setdorm={setdorm} id='dorms' go={go} choosedDorm={0}/>
 					{/* Ветка два */}
 					<AboutStudent id="student-form-filling" go={go} />
 					<EditStudent go={go} id="edit" setActivePanel={setActivePanel} />

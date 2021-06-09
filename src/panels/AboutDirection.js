@@ -8,6 +8,7 @@ import { Cell } from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Counter from '@vkontakte/vkui/dist/components/Counter/Counter';
 import FixedLayout from '@vkontakte/vkui/dist/components/FixedLayout/FixedLayout';
 import Button from '@vkontakte/vkui/dist/components/Button/Button';
+import Link from '@vkontakte/vkui/dist/components/Link/Link';
 import '../css/PickDirections_v2.css';
 import Title from '@vkontakte/vkui/dist/components/Typography/Title/Title';
 import Text from '@vkontakte/vkui/dist/components/Typography/Text/Text';
@@ -46,9 +47,10 @@ class AboutDirection extends Component {
                 </List>
                 <Text weight="medium" style={{ marginBottom: 16, padding: 16 }} dangerouslySetInnerHTML={this.createMarkup(this.state.interestedDirection['Описание'])}></Text>
                 <FixedLayout filled vertical="bottom">
-                    <Div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <Button stretched size="l" mode="primary"
-                            onClick={this.props.go} data-to="pick-directionshome">Еще подробнее</Button>
+                <Div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center!important' }}>
+                    <Link style={{width: '100%', textAlign: 'center', color:"var(--button_primary_foreground)", 
+                    background:"var(--button_primary_background)", borderRadius:8, minHeight:44, display: "flex", justifyContent: "center", alignItems: "center", fontWeight:"500"}} 
+                    href={this.state.interestedDirection['Подробнее']} target="_blank"> Подробнее</Link>
                     </Div>
                 </FixedLayout>
             </Panel>
