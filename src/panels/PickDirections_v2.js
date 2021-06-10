@@ -50,10 +50,13 @@ class PickDirections_v2 extends Component {
 	}
 	componentDidMount = () => {
 		if (localStorage.getItem('selectedGroups')) {
+			for (let i = 0; i < localStorage.getItem('selectedGroups').length; i++)
+			if (localStorage.getItem('selectedGroups')[i] == 't'){
+				this.setState({valid: true})
+			}
 			let counter = 0;
 			for (let i = 0; i < document.querySelectorAll('input[type=checkbox]').length * 2 - 1; i++) {
 				if (localStorage.getItem('selectedGroups')[i] !== ',') {
-					this.setState({valid: true})
 					document.querySelectorAll('input[type=checkbox]')[counter].checked = (localStorage.getItem('selectedGroups')[i] === 't' ? true : false);
 					counter = counter + 1;
 				}
