@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
+import {Panel} from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import FixedLayout from '@vkontakte/vkui/dist/components/FixedLayout/FixedLayout';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';

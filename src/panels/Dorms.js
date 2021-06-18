@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
+import {Panel}  from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import { PanelHeaderBack } from '@vkontakte/vkui';
 import Button from '@vkontakte/vkui/dist/components/Button/Button';
@@ -12,6 +12,8 @@ import Title from '@vkontakte/vkui/dist/components/Typography/Title/Title';
 import Text from '@vkontakte/vkui/dist/components/Typography/Text/Text';
 import Card from '@vkontakte/vkui/dist/components/Card/Card';
 import CardScroll from '@vkontakte/vkui/dist/components/CardScroll/CardScroll';
+import ContentCard from '@vkontakte/vkui/dist/components/ContentCard/ContentCard';
+import CardGrid from '@vkontakte/vkui/dist/components/CardGrid/CardGrid';
 import { Icon16New } from '@vkontakte/icons';
 import ReactMarkdown from 'react-markdown';
 
@@ -57,8 +59,8 @@ class Dorms extends Component {
           </Text>
         </Group>
         <Group description="Наши общежития" style={{marginTop:8}}>
-        
-          <CardScroll size="m">
+
+        <CardGrid size="l">
               {
                 dormsInfo.Общежития.map((dorm,index)=>{
                   return (
@@ -77,7 +79,7 @@ class Dorms extends Component {
                   )
                 })
               }
-            </CardScroll>
+            </CardGrid>
         </Group>
       </Panel>
     )

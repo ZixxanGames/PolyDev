@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
+import {Panel}  from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import { FormItem } from '@vkontakte/vkui/dist/components/FormItem/FormItem';
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
@@ -28,7 +28,7 @@ class EditStudent extends Component {
             dormnum: '',
             stud: '',
             prof: '',
-            changed: false,
+            changed: true,
             groupValid: true,
             studValid: true,
             profValid: true,

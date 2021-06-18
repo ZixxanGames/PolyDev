@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
+import {Panel}  from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import List from '@vkontakte/vkui/dist/components/List/List';
@@ -15,6 +15,10 @@ import Text from '@vkontakte/vkui/dist/components/Typography/Text/Text';
 import Card from '@vkontakte/vkui/dist/components/Card/Card';
 import CardScroll from '@vkontakte/vkui/dist/components/CardScroll/CardScroll';
 import { PanelHeaderBack } from '@vkontakte/vkui';
+
+import HorizontalScroll from '@vkontakte/vkui/dist/components/HorizontalScroll/HorizontalScroll';
+
+
 let dorms = require('../json/dorms.json');
 
 class DormPage extends Component {
@@ -37,13 +41,11 @@ class DormPage extends Component {
             <Panel id={this.props.id}>
                 <PanelHeader left={<PanelHeaderBack onClick={this.props.back} />}>PolyApp</PanelHeader>
                 <Title level="2" weight="regular" style={{ marginBottom: 8, textTransform:'uppercase', textAlign:'center', opacity:.5, fontSize:'.85rem' }}>Общежитие № {this.props.dorm +1} </Title>
-                <CardScroll size="m">
-
+                <CardScroll size='m'>
               {
                 dorms.Общежития[this.props.dorm].Фотографии.map((photo,index)=>{
                   return (
-
-                    <Card  key={index} style={{background:'transparent'}}>
+                    <Card key={index} style={{background:'transparent'}}>
                     <div style={{ paddingBottom: '66%', background:"url(" + photo + ')' ,backgroundPosition:'center', backgroundSize:'cover', width:'100%', borderRadius:'8px', height:'' }}>
                     </div>
                   </Card>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
-import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
+import {Panel} from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import Header from '@vkontakte/vkui/dist/components/Header/Header';
 import Button from '@vkontakte/vkui/dist/components/Button/Button';
