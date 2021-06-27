@@ -92,7 +92,7 @@ const App = () => {
 					<Questions updateData={updateData} id='questions' go={go} />
 					<QuestionsList back={back} updateQuestion={updateQuestion} category={category} id='questions-list' go={go} />
 					<Instruction back={back} question={question} category={category} id='instruction' go={go} />
-					<CalendarPanel back={back} id='calendar' go={go}/>
+					<CalendarPanel fetchedUser={fetchedUser} id='calendar' go={go}/>
 				</View>
 			</AppRoot>
 		</AdaptivityProvider>
